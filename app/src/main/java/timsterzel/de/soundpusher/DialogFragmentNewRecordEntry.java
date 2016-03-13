@@ -36,6 +36,12 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
         View view = inflater.inflate(R.layout.dialog_fragment_new_record_entry, null);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setNegativeButton(getString(android.R.string.cancel), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
         builder.setView(view);
         builder.setTitle("");
         return builder.create();
