@@ -21,7 +21,8 @@ import java.io.File;
 import java.io.IOException;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements
+        DialogFragmentNewRecordEntry.OnNewRecordEntryCreatedListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -198,4 +199,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onNewRecordEntryCreated() {
+
+    }
 }
