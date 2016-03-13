@@ -5,27 +5,61 @@
     tools:context="timsterzel.de.soundpusher.DialogFragmentNewRecordEntry"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <!-- Only a tmp view -->
+    <View
+        android:id="@+id/DummyView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="9"
         android:background="@color/colorPrimary"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
-        <ImageView
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_record_48dp"/>
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp">
+
+            <ImageView
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_record_48dp"/>
+
+            <ImageView
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_play_48dp"/>
+
+            <ImageView
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_stop_48dp"/>
+
+        </LinearLayout>
 
 
 
 
 
 
-    </LinearLayout>
+
+
+
+
+    </RelativeLayout>
 
 
 
