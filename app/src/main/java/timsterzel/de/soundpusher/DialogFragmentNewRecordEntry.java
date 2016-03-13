@@ -20,7 +20,7 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
         void onNewRecordEntryCreated();
     }
 
-    private OnNewRecordEntryCreatedListener mListener;
+    private OnNewRecordEntryCreatedListener m_listener;
 
 
     public static DialogFragmentNewRecordEntry newInstance(String language) {
@@ -43,7 +43,7 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mListener = (OnNewRecordEntryCreatedListener) activity;
+            m_listener = (OnNewRecordEntryCreatedListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnNewRecordEntryCreatedListener");
