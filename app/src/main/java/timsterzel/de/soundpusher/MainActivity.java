@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void startRecording() {
         m_recorder = new MediaRecorder();
-        m_recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+        m_recorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
         m_recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         m_recorder.setOutputFile(m_recordPath + "/TestRecord.3gb");
         m_recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
@@ -102,15 +102,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        m_recordPath = Environment.getExternalStorageDirectory().getAbsolutePath();
+        m_recordPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/RecordSounds";
         File file = new File(m_recordPath);
         if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                Log.e(TAG, "Error by creating file or directory: ", e);
-                e.printStackTrace();
-            }
+            file.mkdir();
         }
 
 
