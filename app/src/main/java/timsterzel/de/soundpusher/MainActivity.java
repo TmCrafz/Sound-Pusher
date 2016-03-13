@@ -1,5 +1,7 @@
 package timsterzel.de.soundpusher;
 
+import android.app.Dialog;
+import android.app.FragmentManager;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
@@ -167,11 +169,14 @@ public class MainActivity extends AppCompatActivity implements
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
+                DialogFragmentNewRecordEntry dialog = DialogFragmentNewRecordEntry.newInstance();
+                dialog.show(fragmentManager, DialogFragmentNewRecordEntry.TAG_SHOWN);
 
 
-
+                /*
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                        .setAction("Action", null).show();*/
             }
         });
     }

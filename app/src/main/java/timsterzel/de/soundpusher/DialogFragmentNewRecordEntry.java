@@ -16,6 +16,8 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
 
     private static final String TAG = DialogFragmentNewRecordEntry.class.getSimpleName();
 
+    public static final String TAG_SHOWN = "DialogFragmentNewRecordEntry";
+
     public interface OnNewRecordEntryCreatedListener {
         void onNewRecordEntryCreated();
     }
@@ -23,7 +25,7 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
     private OnNewRecordEntryCreatedListener m_listener;
 
 
-    public static DialogFragmentNewRecordEntry newInstance(String language) {
+    public static DialogFragmentNewRecordEntry newInstance() {
         DialogFragmentNewRecordEntry fragment = new DialogFragmentNewRecordEntry();
         return fragment;
     }
