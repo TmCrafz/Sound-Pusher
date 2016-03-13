@@ -1,5 +1,6 @@
 package timsterzel.de.soundpusher;
 
+import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Bundle;
@@ -45,11 +46,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private boolean hasMicro() {
+        PackageManager packageManager = getPackageManager();
+        return packageManager.hasSystemFeature(PackageManager.FEATURE_MICROPHONE);
+    }
+
     private void startRecording() {
         m_recorder = new MediaRecorder();
-        m_recorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
+        m_recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+
         m_recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        m_recorder.setOutputFile(m_recordPath + "/TestRecord.3gb");
+        m_recorder.setOutputFile(m_recordPath + "/TestRecord.3gp");
+        //m_recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
         m_recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
 
         try {
@@ -80,7 +88,8 @@ public class MainActivity extends AppCompatActivity {
     private void startPlaying() {
         m_player = new MediaPlayer();
         try {
-            m_player.setDataSource(m_recordPath + "/TestRecord.3gb");
+            m_player.setDataSource(m_recordPath + "/TestRecord.3gp");
+            //m_player.setVolume(50.f, 50.f);
             m_player.prepare();
             m_player.start();
         } catch (IOException e) {
@@ -119,12 +128,14 @@ public class MainActivity extends AppCompatActivity {
         m_btnRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onRecord(!m_recording);
-                if (m_recording) {
-                    m_btnRecord.setText("Stop recording");
-                }
-                else {
-                    m_btnRecord.setText("Record");
+                if (hasMicro()) {
+                    onRecord(!m_recording);
+                    if (m_recording) {
+                        m_btnRecord.setText("Stop recording");
+                    }
+                    else {
+                        m_btnRecord.setText("Record");
+                    }
                 }
             }
         });
@@ -133,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onPlay(!m_playing);
-                if (m_recording) {
+                if (m_playing) {
                     m_btnPlay.setText("Stop playing");
                 }
                 else {
