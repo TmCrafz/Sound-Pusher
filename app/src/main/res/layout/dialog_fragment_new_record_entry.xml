@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     tools:context="timsterzel.de.soundpusher.DialogFragmentNewRecordEntry"
     android:layout_height="match_parent">
@@ -48,25 +49,15 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_stop_48dp"/>
 
-            <ImageView
+
+            <timsterzel.de.soundpusher.MediaButton
+                android:id="@+id/btnRecord"
                 android:padding="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/round_background_click"/>
-
-            <ImageButton
-                android:padding="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:src="@drawable/round_background_click"/>
-
-            <timsterzel.de.soundpusher.DialogFragmentNewRecordEntry.MediaButton
-                android:padding="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="null"
-                android:src="@drawable/ic_play_48dp"/>
+                app:standardSrc="@drawable/ic_record_48dp"
+                app:activeSrc="@drawable/ic_pause_48dp"
+                android:src="@drawable/ic_pause_48dp"/>
 
         </LinearLayout>
 

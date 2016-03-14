@@ -7,7 +7,9 @@ import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -20,6 +22,8 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
     private static final String TAG = DialogFragmentNewRecordEntry.class.getSimpleName();
 
     public static final String TAG_SHOWN = "DialogFragmentNewRecordEntry";
+
+    private MediaButton m_btnRecord;
 
     public interface OnNewRecordEntryCreatedListener {
         void onNewRecordEntryCreated();
@@ -37,6 +41,17 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         LayoutInflater inflater = LayoutInflater.from(getActivity());
         View view = inflater.inflate(R.layout.dialog_fragment_new_record_entry, null);
+
+        m_btnRecord =  (MediaButton) view.findViewById(R.id.btnRecord);
+        m_btnRecord.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                m_btnRecord.changeState();
+            }
+        });
+
+
+
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setNegativeButton(getString(android.R.string.cancel), new DialogInterface.OnClickListener() {
