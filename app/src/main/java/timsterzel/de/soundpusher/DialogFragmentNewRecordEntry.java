@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 /**
  * Created by tim on 13.03.16.
@@ -57,6 +60,8 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
                     + " must implement OnNewRecordEntryCreatedListener");
         }
     }
+
+
 
 
 

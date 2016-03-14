@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MediaButton">
+        <!-- The drawable resource which is shown when the button is in normal mode -->
+        <attr name="standardSrc" format="reference" />
+        <!-- The drawable resource which is shown when the button is active -->
+        <attr name="activeSrc" format="reference" />
+    </declare-styleable>
+
+
+</resources>
