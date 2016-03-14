@@ -48,6 +48,19 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_stop_48dp"/>
 
+            <ImageView
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/round_background_click"/>
+
+            <ImageButton
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:src="@drawable/round_background_click"/>
+
         </LinearLayout>
 
 
