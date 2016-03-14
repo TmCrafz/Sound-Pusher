@@ -31,25 +31,6 @@
             android:layout_centerHorizontal="true"
             android:layout_margin="4dp">
 
-            <ImageView
-                android:padding="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_record_48dp"/>
-
-            <ImageView
-                android:padding="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_play_48dp"/>
-
-            <ImageView
-                android:padding="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_stop_48dp"/>
-
-
             <timsterzel.de.soundpusher.MediaButton
                 android:id="@+id/btnRecord"
                 android:padding="8dp"
@@ -57,7 +38,25 @@
                 android:layout_height="wrap_content"
                 app:standardSrc="@drawable/ic_record_48dp"
                 app:activeSrc="@drawable/ic_pause_48dp"
-                android:src="@drawable/ic_pause_48dp"/>
+                android:src="@drawable/ic_record_48dp"/>
+
+            <timsterzel.de.soundpusher.MediaButton
+                android:id="@+id/btnPlay"
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:standardSrc="@drawable/ic_play_48dp"
+                app:activeSrc="@drawable/ic_play_48dp"
+                android:src="@drawable/ic_play_48dp"/>
+
+            <timsterzel.de.soundpusher.MediaButton
+                android:id="@+id/btnStop"
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:standardSrc="@drawable/ic_stop_48dp"
+                app:activeSrc="@drawable/ic_stop_48dp"
+                android:src="@drawable/ic_stop_48dp"/>
 
         </LinearLayout>
 
