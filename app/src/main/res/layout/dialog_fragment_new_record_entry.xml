@@ -36,36 +36,27 @@
                 android:padding="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:standardSrc="@drawable/ic_record_48dp"
-                app:activeSrc="@drawable/ic_stop_48dp"
-                android:src="@drawable/ic_record_48dp"/>
+                app:standardSrc="@drawable/ic_record_white_48dp"
+                app:activeSrc="@drawable/ic_stop_white_48dp"
+                android:src="@drawable/ic_record_white_48dp"/>
 
             <timsterzel.de.soundpusher.MediaButton
                 android:id="@+id/btnPlay"
                 android:padding="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:standardSrc="@drawable/ic_play_48dp"
-                app:activeSrc="@drawable/ic_play_48dp"
-                android:src="@drawable/ic_play_48dp"/>
+                app:standardSrc="@drawable/ic_play_white_48dp"
+                app:activeSrc="@drawable/ic_stop_white_48dp"
+                android:src="@drawable/ic_play_white_48dp"/>
 
             <timsterzel.de.soundpusher.MediaButton
-                android:id="@+id/btnPause"
+                android:id="@+id/btnSave"
                 android:padding="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:standardSrc="@drawable/ic_pause_48dp"
-                app:activeSrc="@drawable/ic_pause_48dp"
-                android:src="@drawable/ic_stop_48dp"/>
-
-            <ImageButton
-                android:id="@+id/btnTest"
-                android:padding="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:enabled="false"
-                android:clickable="false"
-                android:src="@drawable/ic_stop_48dp"/>
+                app:standardSrc="@drawable/ic_check_white_48dp"
+                app:activeSrc="@drawable/ic_check_white_48dp"
+                android:src="@drawable/ic_check_white_48dp"/>
 
 
 

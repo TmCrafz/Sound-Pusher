@@ -6,7 +6,6 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="INTDTFSHDH OnClick" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
@@ -34,9 +33,55 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="180" column="8" selection-start-line="180" selection-start-column="8" selection-end-line="180" selection-end-column="8" />
+              <caret line="124" column="9" selection-start-line="124" selection-start-column="9" selection-end-line="124" selection-end-column="9" />
+              <folding>
+                <element signature="e#4995#5542#0" expanded="true" />
+                <element signature="e#5541#5542#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DialogFragmentNewRecordEntry.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/DialogFragmentNewRecordEntry.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5224719">
+              <caret line="191" column="32" selection-start-line="191" selection-start-column="32" selection-end-line="191" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2096#2525#0" expanded="true" />
+                <element signature="e#2524#2525#0" expanded="true" />
+                <element signature="e#2566#2906#0" expanded="true" />
+                <element signature="e#2905#2906#0" expanded="true" />
+                <element signature="e#2947#3066#0" expanded="true" />
+                <element signature="e#3065#3066#0" expanded="true" />
+                <element signature="e#6085#6407#0" expanded="true" />
+                <element signature="e#6406#6407#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ic_check_white_48dp.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_check_white_48dp.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="31" column="48" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -50,27 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DialogFragmentNewRecordEntry.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/DialogFragmentNewRecordEntry.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="65" column="44" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1649#1854#0" expanded="true" />
-                <element signature="e#1853#1854#0" expanded="true" />
-                <element signature="e#2141#2348#0" expanded="true" />
-                <element signature="e#2347#2348#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MediaButton.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MediaButton.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/MediaButton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64606744">
-              <caret line="101" column="34" selection-start-line="101" selection-start-column="34" selection-end-line="101" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -88,21 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="attrs.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/attrs.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="52" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="dialog_fragment_new_record_entry.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_fragment_new_record_entry.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.529411">
-              <caret line="57" column="55" selection-start-line="57" selection-start-column="55" selection-end-line="57" selection-end-column="55" />
+            <state vertical-scroll-proportion="-8.970589">
+              <caret line="52" column="40" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -114,7 +133,7 @@
       <file leaf-file-name="content_main.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-10.294118">
               <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
               <folding />
             </state>
@@ -1729,7 +1748,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-de/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_pause_24dp.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_record_24dp.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_play_arrow_24dp.xml" />
@@ -1741,10 +1759,14 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/button_background_click.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/round_background_click.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/attrs.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_fragment_new_record_entry.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/DialogFragmentNewRecordEntry.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/MediaButton.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_mic_24dp.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_fragment_new_record_entry.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_check_white_24dp.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/DialogFragmentNewRecordEntry.java" />
       </list>
     </option>
   </component>
@@ -2309,7 +2331,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2317,7 +2339,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36506158" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36506158" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29710922" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -2357,7 +2379,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="180" column="8" selection-start-line="180" selection-start-column="8" selection-end-line="180" selection-end-column="8" />
-          <folding />
+          <folding>
+            <element signature="e#4995#5542#0" expanded="true" />
+            <element signature="e#5541#5542#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2375,10 +2400,14 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1649#1854#0" expanded="true" />
-            <element signature="e#1853#1854#0" expanded="true" />
-            <element signature="e#2141#2348#0" expanded="true" />
-            <element signature="e#2347#2348#0" expanded="true" />
+            <element signature="e#2096#2525#0" expanded="true" />
+            <element signature="e#2524#2525#0" expanded="true" />
+            <element signature="e#2566#2906#0" expanded="true" />
+            <element signature="e#2905#2906#0" expanded="true" />
+            <element signature="e#2947#3066#0" expanded="true" />
+            <element signature="e#3065#3066#0" expanded="true" />
+            <element signature="e#6085#6407#0" expanded="true" />
+            <element signature="e#6406#6407#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2435,7 +2464,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="180" column="8" selection-start-line="180" selection-start-column="8" selection-end-line="180" selection-end-column="8" />
-          <folding />
+          <folding>
+            <element signature="e#4995#5542#0" expanded="true" />
+            <element signature="e#5541#5542#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2461,10 +2493,14 @@
           <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1649#1854#0" expanded="true" />
-            <element signature="e#1853#1854#0" expanded="true" />
-            <element signature="e#2141#2348#0" expanded="true" />
-            <element signature="e#2347#2348#0" expanded="true" />
+            <element signature="e#2096#2525#0" expanded="true" />
+            <element signature="e#2524#2525#0" expanded="true" />
+            <element signature="e#2566#2906#0" expanded="true" />
+            <element signature="e#2905#2906#0" expanded="true" />
+            <element signature="e#2947#3066#0" expanded="true" />
+            <element signature="e#3065#3066#0" expanded="true" />
+            <element signature="e#6085#6407#0" expanded="true" />
+            <element signature="e#6406#6407#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2480,7 +2516,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_pause_48dp.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_pause_white_48dp.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
@@ -2488,7 +2524,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_play_48dp.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_play_white_48dp.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
@@ -2496,7 +2532,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_record_48dp.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_record_white_48dp.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
@@ -2504,7 +2540,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_stop_48dp.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_stop_white_48dp.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -2516,17 +2552,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.7352943">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2560,7 +2585,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_stop_48dp.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_stop_white_48dp.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
@@ -2568,23 +2593,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_play_48dp.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_play_white_48dp.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16100179">
           <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
@@ -2603,7 +2617,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_record_48dp.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_record_white_48dp.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25233644">
           <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
@@ -2611,26 +2625,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_pause_48dp.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_pause_white_48dp.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1682243">
           <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/SoundEntry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="21" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="180" column="8" selection-start-line="180" selection-start-column="8" selection-end-line="180" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -2643,29 +2641,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_fragment_new_record_entry.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.529411">
-          <caret line="57" column="55" selection-start-line="57" selection-start-column="55" selection-end-line="57" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="124" column="9" selection-start-line="124" selection-start-column="9" selection-end-line="124" selection-end-column="9" />
+          <folding>
+            <element signature="e#4995#5542#0" expanded="true" />
+            <element signature="e#5541#5542#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.294118">
+          <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/DialogFragmentNewRecordEntry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="44" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1649#1854#0" expanded="true" />
-            <element signature="e#1853#1854#0" expanded="true" />
-            <element signature="e#2141#2348#0" expanded="true" />
-            <element signature="e#2347#2348#0" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
@@ -2676,12 +2671,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/SoundEntry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/MediaButton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64606744">
-          <caret line="101" column="34" selection-start-line="101" selection-start-column="34" selection-end-line="101" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_mic_white_24dp.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.252809">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="48" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_fragment_new_record_entry.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.970589">
+          <caret line="52" column="40" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_check_white_48dp.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/DialogFragmentNewRecordEntry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5224719">
+          <caret line="191" column="32" selection-start-line="191" selection-start-column="32" selection-end-line="191" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2096#2525#0" expanded="true" />
+            <element signature="e#2524#2525#0" expanded="true" />
+            <element signature="e#2566#2906#0" expanded="true" />
+            <element signature="e#2905#2906#0" expanded="true" />
+            <element signature="e#2947#3066#0" expanded="true" />
+            <element signature="e#3065#3066#0" expanded="true" />
+            <element signature="e#6085#6407#0" expanded="true" />
+            <element signature="e#6406#6407#0" expanded="true" />
           </folding>
         </state>
       </provider>

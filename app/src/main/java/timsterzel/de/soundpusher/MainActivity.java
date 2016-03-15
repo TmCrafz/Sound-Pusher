@@ -29,9 +29,13 @@ public class MainActivity extends AppCompatActivity implements
     private static final String TAG = MainActivity.class.getSimpleName();
 
     private RecyclerView m_recyclerView;
+
     private RecyclerView.LayoutManager m_layoutManager;
+
     private Button m_btnPlay;
+
     private Button m_btnRecord;
+
 
     private MediaRecorder m_recorder;
     private MediaPlayer m_player;

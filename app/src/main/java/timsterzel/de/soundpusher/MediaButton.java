@@ -70,6 +70,13 @@ public class MediaButton extends ImageButton implements View.OnTouchListener {
         }
     }
 
+    public void setActive(boolean active) {
+        if (m_active != active) {
+            changeState();
+        }
+
+    }
+
     private void changeShownImageResource(int resId) {
         m_currentShownDrawableRes = resId;
         setImageResource(resId);
