@@ -86,7 +86,6 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
                 else {
                     m_btnPlay.setActive(false);
                 }
-
             }
         });
 

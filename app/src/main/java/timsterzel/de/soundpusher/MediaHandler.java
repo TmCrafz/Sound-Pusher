@@ -26,7 +26,15 @@ public class MediaHandler {
 
     private MediaPlayer m_player;
 
+    // The path where the sounds finally are stored
     private String m_recordPath;
+    // Before sounds get saved by user there are stored in a tmp folder
+    private String m_tmpRecordPath;
+
+    private String m_fileExtension;
+    // The name of the recors before the user choose one
+    private String m_tmpAudioName;
+
 
     private OnPlayingComplete m_onPlayingCompleteListener;
 
@@ -38,7 +46,10 @@ public class MediaHandler {
     public MediaHandler(Context context) {
         m_context = context;
         m_recordPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/RecordSounds";
-
+        m_tmpRecordPath = context.getCacheDir().getAbsolutePath();
+        Log.d(TAG, "m_tmpDirectoryPath: " + m_tmpRecordPath);
+        m_tmpAudioName = "sound_tmp_1";
+        m_fileExtension = ".3gp";
     }
 
     public void setOnPlayingCompleteListener(OnPlayingComplete listener) { m_onPlayingCompleteListener = listener; }
@@ -58,7 +69,7 @@ public class MediaHandler {
         m_recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
 
         m_recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        m_recorder.setOutputFile(m_recordPath + "/TestRecord.3gp");
+        m_recorder.setOutputFile(m_tmpRecordPath + "/" + m_tmpAudioName + m_fileExtension);
         //m_recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
         m_recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
 
@@ -92,7 +103,7 @@ public class MediaHandler {
             }
         });
         try {
-            m_player.setDataSource(m_recordPath + "/TestRecord.3gp");
+            m_player.setDataSource(m_tmpRecordPath + "/" + m_tmpAudioName + m_fileExtension);
             //m_player.setVolume(50.f, 50.f);
             m_player.prepare();
             m_player.start();
@@ -108,6 +119,10 @@ public class MediaHandler {
             m_player = null;
             m_playing = false;
         }
+    }
+
+    public void saveRecordedPermanent(String name) {
+
     }
 
 }
