@@ -27,7 +27,7 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
 
     private MediaButton m_btnPlay;
 
-    private MediaButton m_btnStop;
+    private MediaButton m_btnPause;
 
 
     public interface OnNewRecordEntryCreatedListener {
@@ -49,12 +49,13 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
 
         m_btnRecord = (MediaButton) view.findViewById(R.id.btnRecord);
         m_btnPlay = (MediaButton) view.findViewById(R.id.btnPlay);
-        m_btnStop = (MediaButton) view.findViewById(R.id.btnStop);
+        m_btnPause = (MediaButton) view.findViewById(R.id.btnPause);
 
         m_btnRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 m_btnRecord.changeState();
+                m_btnRecord.setEnabled(true);
             }
         });
 
@@ -62,13 +63,18 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
             @Override
             public void onClick(View v) {
                 m_btnPlay.changeState();
+                m_btnRecord.setEnabled(false);
             }
         });
 
-        m_btnStop.setOnClickListener(new View.OnClickListener() {
+        m_btnPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                m_btnStop.changeState();
+                m_btnPause.changeState();
+
+                m_btnRecord.setEnabled(true);
+
+
             }
         });
 

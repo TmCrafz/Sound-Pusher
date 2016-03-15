@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:standardSrc="@drawable/ic_record_48dp"
-                app:activeSrc="@drawable/ic_pause_48dp"
+                app:activeSrc="@drawable/ic_stop_48dp"
                 android:src="@drawable/ic_record_48dp"/>
 
             <timsterzel.de.soundpusher.MediaButton
@@ -50,13 +50,24 @@
                 android:src="@drawable/ic_play_48dp"/>
 
             <timsterzel.de.soundpusher.MediaButton
-                android:id="@+id/btnStop"
+                android:id="@+id/btnPause"
                 android:padding="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:standardSrc="@drawable/ic_stop_48dp"
-                app:activeSrc="@drawable/ic_stop_48dp"
+                app:standardSrc="@drawable/ic_pause_48dp"
+                app:activeSrc="@drawable/ic_pause_48dp"
                 android:src="@drawable/ic_stop_48dp"/>
+
+            <ImageButton
+                android:id="@+id/btnTest"
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:clickable="false"
+                android:src="@drawable/ic_stop_48dp"/>
+
+
 
         </LinearLayout>
 
