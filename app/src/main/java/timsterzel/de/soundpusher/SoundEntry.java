@@ -6,7 +6,9 @@ package timsterzel.de.soundpusher;
 public class SoundEntry {
 
     private String m_soundPath;
+
     private String m_picturePath;
+
     private String m_name;
     // True if the sound is recorded by this application
     private boolean m_internRecorded;
