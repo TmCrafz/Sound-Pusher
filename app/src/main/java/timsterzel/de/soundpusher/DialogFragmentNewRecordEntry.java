@@ -6,9 +6,14 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 /**
  * Created by tim on 13.03.16.
@@ -19,6 +24,8 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
 
     public static final String TAG_SHOWN = "DialogFragmentNewRecordEntry";
 
+    private RelativeLayout m_layoutMediaButtonBar;
+
     private MediaButton m_btnRecord;
 
     private MediaButton m_btnPlay;
@@ -26,6 +33,10 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
     private MediaButton m_btnSave;
 
     private MediaHandler m_mediaHandler;
+
+    private TextInputLayout m_edTxtLayRecordName;
+
+    private EditText m_edTxtRecordName;
 
 
 
@@ -57,9 +68,13 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
             }
         });
 
+        m_layoutMediaButtonBar = (RelativeLayout) view.findViewById(R.id.layoutMediaButtonBar);
         m_btnRecord = (MediaButton) view.findViewById(R.id.btnRecord);
         m_btnPlay = (MediaButton) view.findViewById(R.id.btnPlay);
         m_btnSave = (MediaButton) view.findViewById(R.id.btnSave);
+
+        m_edTxtLayRecordName = (TextInputLayout) view.findViewById(R.id.edTxtLayRecordName);
+        m_edTxtRecordName = (EditText) view.findViewById(R.id.edTxtRecordName);
 
         m_btnRecord.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +107,9 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
         m_btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                m_layoutMediaButtonBar.setVisibility(View.GONE);
+                m_edTxtLayRecordName.setVisibility(View.VISIBLE);
+                //m_edTxtRecordName.setVisibility(View.VISIBLE);
 
 
 
@@ -100,7 +118,7 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
         // User can only save record if something was recorded
         m_btnSave.setEnabled(false);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.RecordDialogTheme);
         builder.setNegativeButton(getString(android.R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -108,7 +126,7 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
             }
         });
         builder.setView(view);
-        builder.setTitle("");
+        //builder.setTitle("Record");
         return builder.create();
     }
 

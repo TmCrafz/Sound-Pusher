@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#D32F2F</color>
     <color name="colorAccent">#009688</color>
 
-
+    <color name="colorRecordDialogKeyContent">#F44336</color>
 
     <color name="colorMediaButtonDisabled">#DDA8A4</color>
 </resources>

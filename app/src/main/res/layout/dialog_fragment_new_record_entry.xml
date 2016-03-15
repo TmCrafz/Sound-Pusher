@@ -4,9 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     tools:context="timsterzel.de.soundpusher.DialogFragmentNewRecordEntry"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:theme="@style/RecordDialogTheme">
 
-    <!-- Only a tmp view -->
     <ImageView
         android:id="@+id/imageView_backgroundImage"
         android:layout_width="wrap_content"
@@ -19,10 +20,11 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorRecordDialogKeyContent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:id="@+id/layoutMediaButtonBar">
 
 
         <LinearLayout
@@ -59,21 +61,57 @@
                 app:activeSrc="@drawable/ic_check_white_48dp"
                 android:src="@drawable/ic_check_white_48dp"/>
 
-
-
         </LinearLayout>
-
-
-
-
-
-
-
-
-
 
     </RelativeLayout>
 
+    <!--
+    <TextView
+        android:padding="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/txtRecordName"
+        android:layout_above="@+id/edTxtRecordName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:visibility="gone" />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:padding="8dp"
+        android:layout_height="48dp"
+        android:text="New Text"
+        android:id="@+id/edTxtRecordName"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
+       -->
+
+    <android.support.design.widget.TextInputLayout
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edTxtLayRecordName"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textColorHint="@color/colorRecordDialogKeyContent"
+        android:visibility="gone" >
+        <!-- android:theme="@style/TextLabelRecordDialog" -->
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/edTxtRecordName"
+            android:hint="@string/txt_SoundName"
+            />
+
+    </android.support.design.widget.TextInputLayout>
 
 
 </RelativeLayout>
