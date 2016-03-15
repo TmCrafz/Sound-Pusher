@@ -7,11 +7,12 @@
     android:layout_height="match_parent">
 
     <!-- Only a tmp view -->
-    <View
-        android:id="@+id/DummyView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_alignParentTop="true"
+    <ImageView
+        android:id="@+id/imageView_backgroundImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_mic_dialog_bg"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
 
