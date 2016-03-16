@@ -209,7 +209,7 @@ public class MainActivity extends AppCompatActivity implements
 
 
     @Override
-    public void onNewRecordEntryCreated() {
+    public void onNewRecordEntryCreated(SoundEntry soundEntry) {
 
     }
 }

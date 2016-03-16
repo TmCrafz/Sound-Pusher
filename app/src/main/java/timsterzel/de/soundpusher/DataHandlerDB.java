@@ -73,11 +73,13 @@ public class DataHandlerDB extends SQLiteOpenHelper {
         return values;
     }
 
-    private int addSoundEntry(final SoundEntry soundEntry){
+    // Add the given SoundEntry and change his id to the new row id
+    public int addSoundEntry(final SoundEntry soundEntry){
         ContentValues values = getContentValues(soundEntry);
         SQLiteDatabase db = this.getWritableDatabase();
         int rowID = (int) db.insert(SOUND_TABLE, null, values);
         db.close();
+        soundEntry.setID(rowID);
         return rowID;
     }
 

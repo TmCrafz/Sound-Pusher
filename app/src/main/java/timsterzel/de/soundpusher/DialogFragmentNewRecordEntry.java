@@ -7,13 +7,13 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
-import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
+
+import java.io.File;
 
 /**
  * Created by tim on 13.03.16.
@@ -43,8 +43,10 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
 
     private AlertDialog m_alertDialog;
 
+    private DataHandlerDB m_dataHandlerDB;
+
     public interface OnNewRecordEntryCreatedListener {
-        void onNewRecordEntryCreated();
+        void onNewRecordEntryCreated(SoundEntry soundEntry);
     }
 
     private OnNewRecordEntryCreatedListener m_listener;
@@ -60,7 +62,10 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
         LayoutInflater inflater = LayoutInflater.from(getActivity());
         View view = inflater.inflate(R.layout.dialog_fragment_new_record_entry, null);
 
+        m_dataHandlerDB = new DataHandlerDB(getActivity());
+
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.RecordDialogTheme);
+        //builder.setTitle("Record");
         builder.setNegativeButton(getString(android.R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -70,20 +75,36 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
         builder.setPositiveButton(getString(android.R.string.ok), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                m_listener.onNewRecordEntryCreated();
+                // Save entry
+                String name = m_edTxtRecordName.getText().toString();
+                if (name.equals("")) {
+                    // if user input no name, give sound a standard name
+                    name = getString(R.string.txt_newSoundNameDummy);
+                }
+                String soundPath = m_mediaHandler.saveRecordPermanent(name);
+                Log.d(TAG, "SoundPath: " + soundPath);
+                if (soundPath != null) {
+                    SoundEntry soundEntry = new SoundEntry(0, soundPath, false, null, name, true);
+                    m_dataHandlerDB.addSoundEntry(soundEntry);
+                    m_listener.onNewRecordEntryCreated(soundEntry);
+                }
+
+
+
+
+                //SoundEntry soundEntry = new SoundEntry(0, )
+
+
+
             }
         });
         builder.setView(view);
         m_alertDialog = builder.create();
 
-        //builder.setTitle("Record");
-
-
         m_mediaHandler = new MediaHandler(getActivity());
         m_mediaHandler.setOnPlayingCompleteListener(new MediaHandler.OnPlayingComplete() {
             @Override
             public void onPlayingComplete() {
-                Log.d(TAG, "Playing completed listener");
                 // If playback is completed, user can replay the sound or record a new one
                 m_btnRecord.setEnabled(true);
                 m_btnPlay.setActive(false);
@@ -133,7 +154,7 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
                 m_inRecordMode = false;
                 // Now we can show the positive button so user can save the audio
                 m_alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setVisibility(View.VISIBLE);
-                m_alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+                //m_alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
 
                 //m_edTxtRecordName.setVisibility(View.VISIBLE);
             }
@@ -197,5 +218,8 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
             m_btnPlay.setActive(false);
         }
     }
+
+
+
 
 }

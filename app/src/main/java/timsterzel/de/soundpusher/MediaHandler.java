@@ -7,6 +7,7 @@ import android.media.MediaRecorder;
 import android.os.Environment;
 import android.util.Log;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -26,8 +27,10 @@ public class MediaHandler {
 
     private MediaPlayer m_player;
 
+    /*
     // The path where the sounds finally are stored
     private String m_recordPath;
+    */
     // Before sounds get saved by user there are stored in a tmp folder
     private String m_tmpRecordPath;
 
@@ -45,7 +48,7 @@ public class MediaHandler {
 
     public MediaHandler(Context context) {
         m_context = context;
-        m_recordPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/RecordSounds";
+        //m_recordPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/RecordSounds";
         m_tmpRecordPath = context.getCacheDir().getAbsolutePath();
         Log.d(TAG, "m_tmpDirectoryPath: " + m_tmpRecordPath);
         m_tmpAudioName = "sound_tmp_1";
@@ -53,7 +56,6 @@ public class MediaHandler {
     }
 
     public void setOnPlayingCompleteListener(OnPlayingComplete listener) { m_onPlayingCompleteListener = listener; }
-
 
     public boolean isRecording() { return m_recording; }
 
@@ -64,12 +66,14 @@ public class MediaHandler {
         return packageManager.hasSystemFeature(PackageManager.FEATURE_MICROPHONE);
     }
 
+    public String getTmpFilePath() { return m_tmpRecordPath + "/" + m_tmpAudioName + m_fileExtension; }
+
     public void startRecording() {
         m_recorder = new MediaRecorder();
         m_recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
 
         m_recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        m_recorder.setOutputFile(m_tmpRecordPath + "/" + m_tmpAudioName + m_fileExtension);
+        m_recorder.setOutputFile(getTmpFilePath());
         //m_recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
         m_recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
 
@@ -121,8 +125,14 @@ public class MediaHandler {
         }
     }
 
-    public void saveRecordedPermanent(String name) {
-
+    public String saveRecordPermanent(String name) {
+        name += m_fileExtension;
+        String fileName = SoundFileHandler.createLegalFilename(name);
+        File fileTmp = new File(getTmpFilePath());
+        String path = SoundFileHandler.moveFileToSoundPath(fileTmp, fileName);
+        return path;
     }
+
+
 
 }
