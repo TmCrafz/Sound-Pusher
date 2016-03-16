@@ -5,7 +5,11 @@ package timsterzel.de.soundpusher;
  */
 public class SoundEntry {
 
+    private long m_id;
+
     private String m_soundPath;
+
+    private boolean m_hasPicture;
 
     private String m_picturePath;
 
@@ -14,14 +18,20 @@ public class SoundEntry {
     private boolean m_internRecorded;
 
 
-    public SoundEntry(String soundPath, String picturePath, String name, boolean internRecorded) {
+    public SoundEntry(long id, String soundPath, boolean hasPicture, String picturePath, String name, boolean internRecorded) {
+        m_id = id;
         m_soundPath = soundPath;
+        m_hasPicture = hasPicture;
         m_picturePath = picturePath;
         m_name = name;
         m_internRecorded = internRecorded;
     }
 
+    public long getID() { return m_id; }
+
     public String getSoundPath() { return m_soundPath; }
+
+    public boolean hasPicture() { return m_hasPicture; }
 
     public String getPicturePath() { return m_picturePath; }
 
@@ -29,7 +39,11 @@ public class SoundEntry {
 
     public boolean isInternRecorded() { return m_internRecorded; }
 
+    public void setID(long id) { m_id = id; }
+
     public void setSoundPath(String soundPath) { m_soundPath = soundPath; }
+
+    public void setHasPicture(boolean hasPicture) { m_hasPicture = hasPicture; }
 
     public void setPicturePath(String picturePath) { m_picturePath = picturePath; }
 
