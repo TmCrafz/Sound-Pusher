@@ -37,8 +37,11 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
     private TextInputLayout m_edTxtLayRecordName;
 
     private EditText m_edTxtRecordName;
+    // The dialog has to states, the record mode (where the user can record sounds) and a mode where the user can
+    // give the sound a name and save it
+    private boolean m_inRecordMode;
 
-
+    private AlertDialog m_alertDialog;
 
     public interface OnNewRecordEntryCreatedListener {
         void onNewRecordEntryCreated();
@@ -56,6 +59,25 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         LayoutInflater inflater = LayoutInflater.from(getActivity());
         View view = inflater.inflate(R.layout.dialog_fragment_new_record_entry, null);
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.RecordDialogTheme);
+        builder.setNegativeButton(getString(android.R.string.cancel), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.setPositiveButton(getString(android.R.string.ok), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                m_listener.onNewRecordEntryCreated();
+            }
+        });
+        builder.setView(view);
+        m_alertDialog = builder.create();
+
+        //builder.setTitle("Record");
+
 
         m_mediaHandler = new MediaHandler(getActivity());
         m_mediaHandler.setOnPlayingCompleteListener(new MediaHandler.OnPlayingComplete() {
@@ -97,8 +119,7 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
                 onPlay(!m_mediaHandler.isPlaying());
                 if (m_mediaHandler.isPlaying()) {
                     m_btnPlay.setActive(true);
-                }
-                else {
+                } else {
                     m_btnPlay.setActive(false);
                 }
             }
@@ -109,25 +130,30 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
             public void onClick(View v) {
                 m_layoutMediaButtonBar.setVisibility(View.GONE);
                 m_edTxtLayRecordName.setVisibility(View.VISIBLE);
+                m_inRecordMode = false;
+                // Now we can show the positive button so user can save the audio
+                m_alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setVisibility(View.VISIBLE);
+                m_alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+
                 //m_edTxtRecordName.setVisibility(View.VISIBLE);
-
-
-
             }
         });
         // User can only save record if something was recorded
         m_btnSave.setEnabled(false);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.RecordDialogTheme);
-        builder.setNegativeButton(getString(android.R.string.cancel), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-        builder.setView(view);
-        //builder.setTitle("Record");
-        return builder.create();
+        m_inRecordMode = true;
+
+        return m_alertDialog;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // The positive button save the recorded audio ,so it only should be shown after a audio was
+        // recorded
+        if (m_inRecordMode) {
+            m_alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setVisibility(View.GONE);
+        }
     }
 
     @Override

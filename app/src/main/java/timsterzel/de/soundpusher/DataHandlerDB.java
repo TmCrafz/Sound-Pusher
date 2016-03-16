@@ -131,5 +131,4 @@ public class DataHandlerDB extends SQLiteOpenHelper {
         db.close();
     }
 
-
 }
