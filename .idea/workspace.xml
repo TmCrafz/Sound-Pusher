@@ -33,7 +33,7 @@
       <file leaf-file-name="DialogFragmentNewRecordEntry.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/DialogFragmentNewRecordEntry.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.7352941">
+            <state vertical-scroll-proportion="-18.529411">
               <caret line="48" column="35" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -53,8 +53,8 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2990654">
-              <caret line="97" column="75" selection-start-line="97" selection-start-column="75" selection-end-line="97" selection-end-column="75" />
+            <state vertical-scroll-proportion="0.5233645">
+              <caret line="165" column="37" selection-start-line="165" selection-start-column="37" selection-end-line="165" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2107#2654#0" expanded="true" />
@@ -64,6 +64,8 @@
                 <element signature="e#3560#3561#0" expanded="true" />
                 <element signature="e#3648#3649#0" expanded="true" />
                 <element signature="e#3676#3677#0" expanded="true" />
+                <element signature="e#5360#5361#0" expanded="true" />
+                <element signature="e#5404#5405#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,14 +105,14 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/AdapterSounds.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="77" column="47" selection-start-line="77" selection-start-column="47" selection-end-line="77" selection-end-column="47" />
+              <caret line="111" column="68" selection-start-line="111" selection-start-column="68" selection-end-line="111" selection-end-column="68" />
               <folding>
-                <element signature="e#2175#2176#0" expanded="true" />
-                <element signature="e#2219#2220#0" expanded="true" />
-                <element signature="e#2906#3961#0" expanded="true" />
-                <element signature="e#3320#3677#0" expanded="true" />
-                <element signature="e#3676#3677#0" expanded="true" />
-                <element signature="e#3960#3961#0" expanded="true" />
+                <element signature="e#2229#2230#0" expanded="true" />
+                <element signature="e#2273#2274#0" expanded="true" />
+                <element signature="e#2960#4337#0" expanded="true" />
+                <element signature="e#3372#3729#0" expanded="true" />
+                <element signature="e#3728#3729#0" expanded="true" />
+                <element signature="e#4336#4337#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -120,7 +122,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/MediaHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="118" column="6" selection-start-line="118" selection-start-column="6" selection-end-line="118" selection-end-column="6" />
+              <caret line="146" column="31" selection-start-line="146" selection-start-column="31" selection-end-line="146" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3743#4159#0" expanded="true" />
@@ -1762,7 +1764,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_mic_dialog_bg.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/MediaHandle.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_fragment_save_new_record_entry.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_fragment_new_record_entry.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/mDataHandler.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/SoundEntry.java" />
@@ -1771,17 +1772,18 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/adapter_sounds.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/SoundFileHandler.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/MediaHandler.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/DialogFragmentNewRecordEntry.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_mode_edit_white_24dp.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/AdapterSounds.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/DataHandlerDB.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_main_edit.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-de/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/MediaHandler.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/AdapterSounds.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/MainActivity.java" />
       </list>
     </option>
@@ -2428,6 +2430,8 @@
             <element signature="e#3560#3561#0" expanded="true" />
             <element signature="e#3648#3649#0" expanded="true" />
             <element signature="e#3676#3677#0" expanded="true" />
+            <element signature="e#5360#5361#0" expanded="true" />
+            <element signature="e#5404#5405#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2508,6 +2512,8 @@
             <element signature="e#3560#3561#0" expanded="true" />
             <element signature="e#3648#3649#0" expanded="true" />
             <element signature="e#3676#3677#0" expanded="true" />
+            <element signature="e#5360#5361#0" expanded="true" />
+            <element signature="e#5404#5405#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2684,14 +2690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19626169">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/SoundEntry.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2762,41 +2760,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/DialogFragmentNewRecordEntry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7352941">
-          <caret line="48" column="35" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4408#4886#0" expanded="true" />
-            <element signature="e#4885#4886#0" expanded="true" />
-            <element signature="e#4927#5284#0" expanded="true" />
-            <element signature="e#5283#5284#0" expanded="true" />
-            <element signature="e#5325#5948#0" expanded="true" />
-            <element signature="e#5947#5948#0" expanded="true" />
-            <element signature="e#7540#7879#0" expanded="true" />
-            <element signature="e#7878#7879#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_mode_edit_white_24dp.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19626169">
           <caret line="7" column="117" selection-start-line="7" selection-start-column="117" selection-end-line="7" selection-end-column="117" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/MediaHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="118" column="6" selection-start-line="118" selection-start-column="6" selection-end-line="118" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3743#4159#0" expanded="true" />
-            <element signature="e#4158#4159#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2855,21 +2823,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/AdapterSounds.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="47" selection-start-line="77" selection-start-column="47" selection-end-line="77" selection-end-column="47" />
-          <folding>
-            <element signature="e#2175#2176#0" expanded="true" />
-            <element signature="e#2219#2220#0" expanded="true" />
-            <element signature="e#2906#3961#0" expanded="true" />
-            <element signature="e#3320#3677#0" expanded="true" />
-            <element signature="e#3676#3677#0" expanded="true" />
-            <element signature="e#3960#3961#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.8125">
@@ -2886,10 +2839,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11214953">
+          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/MediaHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="146" column="31" selection-start-line="146" selection-start-column="31" selection-end-line="146" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3743#4159#0" expanded="true" />
+            <element signature="e#4158#4159#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/DialogFragmentNewRecordEntry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.529411">
+          <caret line="48" column="35" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4408#4886#0" expanded="true" />
+            <element signature="e#4885#4886#0" expanded="true" />
+            <element signature="e#4927#5284#0" expanded="true" />
+            <element signature="e#5283#5284#0" expanded="true" />
+            <element signature="e#5325#5948#0" expanded="true" />
+            <element signature="e#5947#5948#0" expanded="true" />
+            <element signature="e#7540#7879#0" expanded="true" />
+            <element signature="e#7878#7879#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/AdapterSounds.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="111" column="68" selection-start-line="111" selection-start-column="68" selection-end-line="111" selection-end-column="68" />
+          <folding>
+            <element signature="e#2229#2230#0" expanded="true" />
+            <element signature="e#2273#2274#0" expanded="true" />
+            <element signature="e#2960#4337#0" expanded="true" />
+            <element signature="e#3372#3729#0" expanded="true" />
+            <element signature="e#3728#3729#0" expanded="true" />
+            <element signature="e#4336#4337#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2990654">
-          <caret line="97" column="75" selection-start-line="97" selection-start-column="75" selection-end-line="97" selection-end-column="75" />
+        <state vertical-scroll-proportion="0.5233645">
+          <caret line="165" column="37" selection-start-line="165" selection-start-column="37" selection-end-line="165" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2107#2654#0" expanded="true" />
@@ -2899,6 +2905,8 @@
             <element signature="e#3560#3561#0" expanded="true" />
             <element signature="e#3648#3649#0" expanded="true" />
             <element signature="e#3676#3677#0" expanded="true" />
+            <element signature="e#5360#5361#0" expanded="true" />
+            <element signature="e#5404#5405#0" expanded="true" />
           </folding>
         </state>
       </provider>

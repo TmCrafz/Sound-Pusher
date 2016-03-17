@@ -19,7 +19,8 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
     private boolean m_inEditMode;
 
     public interface OnHandleAdapterItemSoundActions {
-        void onPlaySoundOfEntries(SoundEntry soundEntry, MediaHandler.OnPlayingComplete listener);
+        void onPlaySoundOfEntry(SoundEntry soundEntry, MediaHandler.OnPlayingComplete listener);
+        void onStopSoundOfEntry(SoundEntry soundEntry);
         void onDeleteSoundEntry(SoundEntry soundEntry);
     }
 
@@ -93,7 +94,7 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
                 public void onClick(View v) {
 
 
-                    if (!m_inEditMode && m_soundEntry != null && !m_isSoundPlaying) {
+                    if (!m_inEditMode && m_listener != null && !m_isSoundPlaying) {
                         m_isSoundPlaying = true;
                         m_imageViewSound.setImageResource(R.drawable.ic_pause_circle_fill_128dp);
                         MediaHandler.OnPlayingComplete playCompleteListener = new MediaHandler.OnPlayingComplete() {
@@ -103,7 +104,12 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
                                 m_imageViewSound.setImageResource(R.drawable.ic_play_circle_fill_128dp);
                             }
                         };
-                        m_listener.onPlaySoundOfEntries(m_soundEntry, playCompleteListener);
+                        m_listener.onPlaySoundOfEntry(m_soundEntry, playCompleteListener);
+                    }
+                    else if (!m_inEditMode && m_listener != null && m_isSoundPlaying) {
+                        m_isSoundPlaying = false;
+                        m_imageViewSound.setImageResource(R.drawable.ic_play_circle_fill_128dp);
+                        m_listener.onStopSoundOfEntry(m_soundEntry);
                     }
                     else if (m_inEditMode) {
                         m_listener.onDeleteSoundEntry(m_soundEntry);

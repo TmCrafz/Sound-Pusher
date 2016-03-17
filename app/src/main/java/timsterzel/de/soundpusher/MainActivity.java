@@ -157,8 +157,13 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onPlaySoundOfEntries(SoundEntry soundEntry, MediaHandler.OnPlayingComplete listener) {
+    public void onPlaySoundOfEntry(SoundEntry soundEntry, MediaHandler.OnPlayingComplete listener) {
         m_mediaHandler.startPlaying(soundEntry.getSoundPath(), listener);
+    }
+
+    @Override
+    public void onStopSoundOfEntry(SoundEntry soundEntry) {
+        m_mediaHandler.stopPlaying();
     }
 
     @Override
