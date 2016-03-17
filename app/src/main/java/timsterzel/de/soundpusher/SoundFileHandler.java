@@ -30,6 +30,14 @@ public class SoundFileHandler {
             'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5' , '6', '7', '8', '9' };
 
 
+    public static void createSoundFilePathIfNotExists() {
+        File file = new File(SOUND_PATH);
+        if (!file.exists()) {
+            file.mkdir();
+        }
+    }
+
+
     public static String moveFileToSoundPath(File file, String name) {
         if (!file.exists()) {
             return null;
