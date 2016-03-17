@@ -5,5 +5,22 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
+
+        <!-- Use own themes for dialogs -->
+        <item name="android:dialogTheme">@style/Theme.SoundPusher.Dialog.Alert</item>
+        <item name="android:alertDialogTheme">@style/Theme.SoundPusher.Dialog.Alert</item>
     </style>
+
+    <!-- Own custom Dialog theme so dialogs have material design (including Dialog Preference) -->
+    <style name="Theme.SoundPusher.Dialog.Alert" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+
+
+
 </resources>

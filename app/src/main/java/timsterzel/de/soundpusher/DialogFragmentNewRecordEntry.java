@@ -64,7 +64,7 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
 
         m_dataHandlerDB = new DataHandlerDB(getActivity());
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.RecordDialogTheme);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity()/*, R.style.RecordDialogTheme*/);
         //builder.setTitle("Record");
         builder.setNegativeButton(getString(android.R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
