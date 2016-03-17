@@ -43,6 +43,7 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
     @Override
     public void onBindViewHolder(SoundViewHolder holder, int position) {
         SoundEntry soundEntry = m_soundEntries.get(position);
+        holder.m_isSoundPlaying = false;
         holder.m_soundEntry = soundEntry;
         holder.m_txtSoundName.setText(soundEntry.getName());
         holder.m_listenerPlay = (OnPlaySoundOfEntries) m_context;
@@ -55,6 +56,8 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
     }
 
     public static class SoundViewHolder extends RecyclerView.ViewHolder {
+
+        private boolean m_isSoundPlaying;
 
         private OnPlaySoundOfEntries m_listenerPlay;
 
@@ -73,10 +76,13 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
                 @Override
                 public void onClick(View v) {
                     if (m_soundEntry != null) {
+                        m_isSoundPlaying = true;
+                        m_imageViewSound.setImageResource(R.drawable.ic_pause_circle_fill_128dp);
                         MediaHandler.OnPlayingComplete playCompleteListener = new MediaHandler.OnPlayingComplete() {
                             @Override
                             public void onPlayingComplete() {
-
+                                m_isSoundPlaying = false;
+                                m_imageViewSound.setImageResource(R.drawable.ic_play_circle_fill_128dp);
                             }
                         };
                         m_listenerPlay.onPlaySoundOfEntries(m_soundEntry, playCompleteListener);
