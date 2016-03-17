@@ -1,35 +1,30 @@
 package timsterzel.de.soundpusher;
 
-import android.app.Dialog;
 import android.app.FragmentManager;
-import android.content.pm.PackageManager;
-import android.media.MediaPlayer;
-import android.media.MediaRecorder;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.ActionMode;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity implements
+        ActionMode.Callback,
         DialogFragmentNewRecordEntry.OnNewRecordEntryCreatedListener,
-        AdapterSounds.OnPlaySoundOfEntries {
+        AdapterSounds.OnHandleAdapterItemSoundActions {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+
+    private ActionMode m_actionMode;
 
     private RecyclerView m_recyclerView;
 
@@ -96,6 +91,39 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
+    public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+        MenuInflater inflater = mode.getMenuInflater();
+        inflater.inflate(R.menu.menu_main_edit, menu);
+        m_actionMode = mode;
+        m_actionMode.setTitle(getString(R.string.txt_actionModeMainTitle));
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+        return false;
+    }
+
+    @Override
+    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+        return false;
+    }
+
+    @Override
+    public void onDestroyActionMode(ActionMode mode) {
+        m_adapterSounds.setIsInEditMode(false);
+        m_adapterSounds.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (m_actionMode != null) {
+            m_actionMode.finish();
+        }
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -112,6 +140,11 @@ public class MainActivity extends AppCompatActivity implements
             return true;
 
         }
+        if (id == R.id.action_edit) {
+            startSupportActionMode(this);
+            m_adapterSounds.setIsInEditMode(true);
+            m_adapterSounds.notifyDataSetChanged();
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -125,7 +158,14 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onPlaySoundOfEntries(SoundEntry soundEntry, MediaHandler.OnPlayingComplete listener) {
-        Log.d(TAG, "SoundEntries Play Sound");
         m_mediaHandler.startPlaying(soundEntry.getSoundPath(), listener);
+    }
+
+    @Override
+    public void onDeleteSoundEntry(SoundEntry soundEntry) {
+        int pos = m_soundEntries.indexOf(soundEntry);
+        m_soundEntries.remove(pos);
+        m_dataHandlerDB.deleteSoundEntry(soundEntry.getID());
+        m_adapterSounds.notifyItemRemoved(pos);
     }
 }

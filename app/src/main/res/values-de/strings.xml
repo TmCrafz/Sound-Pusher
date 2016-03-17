@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">SoundPusher</string>
     <string name="action_settings">Optionen</string>
+    <string name="action_edit">Bearbeiten</string>
 
     <string name="txt_SoundName">Sound Name</string>
+    <string name="txt_actionModeMainTitle">Bearbeiten</string>
 
     <string name="txt_newSoundNameDummy">Neuer Sound</string>
 </resources>

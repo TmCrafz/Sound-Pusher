@@ -16,8 +16,11 @@ import java.util.ArrayList;
  */
 public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewHolder> {
 
-    public interface OnPlaySoundOfEntries {
+    private boolean m_inEditMode;
+
+    public interface OnHandleAdapterItemSoundActions {
         void onPlaySoundOfEntries(SoundEntry soundEntry, MediaHandler.OnPlayingComplete listener);
+        void onDeleteSoundEntry(SoundEntry soundEntry);
     }
 
     private static final String TAG = AdapterSounds.class.getSimpleName();
@@ -30,7 +33,12 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
     public AdapterSounds(Context context, ArrayList<SoundEntry> soundEntries) {
         m_context = context;
         m_soundEntries = soundEntries;
+        m_inEditMode = false;
     }
+
+    public void setIsInEditMode(boolean inEditMode) { m_inEditMode = inEditMode; }
+
+    public boolean isInEditMode() { return m_inEditMode; }
 
     @Override
     public SoundViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -44,10 +52,16 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
     public void onBindViewHolder(SoundViewHolder holder, int position) {
         SoundEntry soundEntry = m_soundEntries.get(position);
         holder.m_isSoundPlaying = false;
+        holder.m_inEditMode = m_inEditMode;
         holder.m_soundEntry = soundEntry;
         holder.m_txtSoundName.setText(soundEntry.getName());
-        holder.m_listenerPlay = (OnPlaySoundOfEntries) m_context;
-        Log.d(TAG, "SoundEntries onBindViewHolder");
+        holder.m_listener = (OnHandleAdapterItemSoundActions) m_context;
+        if (m_inEditMode) {
+            holder.m_imageViewSound.setImageResource(R.drawable.ic_delete_128dp);
+        }
+        else {
+            holder.m_imageViewSound.setImageResource(R.drawable.ic_play_circle_fill_128dp);
+        }
     }
 
     @Override
@@ -59,7 +73,9 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
 
         private boolean m_isSoundPlaying;
 
-        private OnPlaySoundOfEntries m_listenerPlay;
+        private boolean m_inEditMode;
+
+        private OnHandleAdapterItemSoundActions m_listener;
 
         private ImageView m_imageViewSound;
         private TextView m_txtSoundName;
@@ -75,7 +91,9 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
             m_imageViewSound.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (m_soundEntry != null && !m_isSoundPlaying) {
+
+
+                    if (!m_inEditMode && m_soundEntry != null && !m_isSoundPlaying) {
                         m_isSoundPlaying = true;
                         m_imageViewSound.setImageResource(R.drawable.ic_pause_circle_fill_128dp);
                         MediaHandler.OnPlayingComplete playCompleteListener = new MediaHandler.OnPlayingComplete() {
@@ -85,7 +103,10 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
                                 m_imageViewSound.setImageResource(R.drawable.ic_play_circle_fill_128dp);
                             }
                         };
-                        m_listenerPlay.onPlaySoundOfEntries(m_soundEntry, playCompleteListener);
+                        m_listener.onPlaySoundOfEntries(m_soundEntry, playCompleteListener);
+                    }
+                    else if (m_inEditMode) {
+                        m_listener.onDeleteSoundEntry(m_soundEntry);
                     }
                 }
             });

@@ -127,7 +127,7 @@ public class DataHandlerDB extends SQLiteOpenHelper {
         return soundEntries;
     }
 
-    public void deleteSoundEntry(int id){
+    public void deleteSoundEntry(long id){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(SOUND_TABLE, SOUND_ID + " = ?", new String[]{String.valueOf(id)});
         db.close();
