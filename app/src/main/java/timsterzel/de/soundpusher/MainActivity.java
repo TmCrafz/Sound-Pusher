@@ -21,16 +21,24 @@ import android.widget.Button;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity implements
-        DialogFragmentNewRecordEntry.OnNewRecordEntryCreatedListener {
+        DialogFragmentNewRecordEntry.OnNewRecordEntryCreatedListener,
+        AdapterSounds.OnPlaySoundOfEntries {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
     private RecyclerView m_recyclerView;
 
     private RecyclerView.LayoutManager m_layoutManager;
+
+    private AdapterSounds m_adapterSounds;
+
+    private DataHandlerDB m_dataHandlerDB;
+
+    private ArrayList<SoundEntry> m_soundEntries;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,18 +49,15 @@ public class MainActivity extends AppCompatActivity implements
 
         SoundFileHandler.createSoundFilePathIfNotExists();
 
-
-
-
         m_recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
         m_recyclerView.setHasFixedSize(true);
-
         m_layoutManager = new GridLayoutManager(this, 2);
         m_recyclerView.setLayoutManager(m_layoutManager);
-
-
-
+        m_dataHandlerDB = new DataHandlerDB(this);
+        m_soundEntries = m_dataHandlerDB.getAllSoundEntries();
+        m_adapterSounds = new AdapterSounds(this, m_soundEntries);
+        m_recyclerView.setAdapter(m_adapterSounds);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +100,11 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onNewRecordEntryCreated(SoundEntry soundEntry) {
+
+    }
+
+    @Override
+    public void onPlaySoundOfEntries(SoundEntry soundEntry) {
 
     }
 }

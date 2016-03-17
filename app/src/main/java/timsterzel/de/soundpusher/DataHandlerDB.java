@@ -103,7 +103,6 @@ public class DataHandlerDB extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-        db.close();
         long id = 0;
         String soundPath;
         boolean hasPicture;
@@ -124,6 +123,7 @@ public class DataHandlerDB extends SQLiteOpenHelper {
                 soundEntries.add(new SoundEntry(id, soundPath, hasPicture, picturePath, name, isInternRecorded));
             } while (cursor.moveToNext());
         }
+        db.close();
         return soundEntries;
     }
 

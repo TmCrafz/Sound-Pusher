@@ -117,6 +117,8 @@ public class MediaHandler {
         m_playing = true;
     }
 
+
+
     public void stopPlaying() {
         if (m_playing) {
             m_player.release();
