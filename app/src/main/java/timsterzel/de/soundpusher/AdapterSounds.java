@@ -2,6 +2,7 @@ package timsterzel.de.soundpusher;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,11 +46,12 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
         holder.m_soundEntry = soundEntry;
         holder.m_txtSoundName.setText(soundEntry.getName());
         holder.m_listenerPlay = (OnPlaySoundOfEntries) m_context;
+        Log.d(TAG, "SoundEntries onBindViewHolder");
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return m_soundEntries.size();
     }
 
     public static class SoundViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

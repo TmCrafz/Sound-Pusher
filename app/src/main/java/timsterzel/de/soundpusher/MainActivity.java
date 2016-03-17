@@ -11,6 +11,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -52,12 +53,16 @@ public class MainActivity extends AppCompatActivity implements
         m_recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
         m_recyclerView.setHasFixedSize(true);
+        //m_layoutManager = new LinearLayoutManager(this);
         m_layoutManager = new GridLayoutManager(this, 2);
         m_recyclerView.setLayoutManager(m_layoutManager);
+
         m_dataHandlerDB = new DataHandlerDB(this);
         m_soundEntries = m_dataHandlerDB.getAllSoundEntries();
         m_adapterSounds = new AdapterSounds(this, m_soundEntries);
         m_recyclerView.setAdapter(m_adapterSounds);
+
+        Log.d(TAG, "SoundEntries size: " + m_soundEntries.size());
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
