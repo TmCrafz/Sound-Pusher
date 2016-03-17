@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewHolder> {
 
     public interface OnPlaySoundOfEntries {
-        void onPlaySoundOfEntries(SoundEntry soundEntry);
+        void onPlaySoundOfEntries(SoundEntry soundEntry, MediaHandler.OnPlayingComplete listener);
     }
 
     private static final String TAG = AdapterSounds.class.getSimpleName();
@@ -54,7 +54,7 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
         return m_soundEntries.size();
     }
 
-    public static class SoundViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class SoundViewHolder extends RecyclerView.ViewHolder {
 
         private OnPlaySoundOfEntries m_listenerPlay;
 
@@ -68,16 +68,24 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
             super(itemView);
             m_imageViewSound = (ImageView) itemView.findViewById(R.id.imageViewSound);
             m_txtSoundName = (TextView) itemView.findViewById(R.id.txtSoundName);
+            // Let Activity play the sound
+            m_imageViewSound.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (m_soundEntry != null) {
+                        MediaHandler.OnPlayingComplete playCompleteListener = new MediaHandler.OnPlayingComplete() {
+                            @Override
+                            public void onPlayingComplete() {
+
+                            }
+                        };
+                        m_listenerPlay.onPlaySoundOfEntries(m_soundEntry, playCompleteListener);
+                    }
+                }
+            });
 
         }
 
-        @Override
-        public void onClick(View v) {
-            if (m_soundEntry != null) {
-                m_listenerPlay.onPlaySoundOfEntries(m_soundEntry);
-            }
-
-        }
     }
 
 }

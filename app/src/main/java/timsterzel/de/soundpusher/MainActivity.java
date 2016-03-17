@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements
 
     private ArrayList<SoundEntry> m_soundEntries;
 
+    private MediaHandler m_mediaHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,9 +60,9 @@ public class MainActivity extends AppCompatActivity implements
         m_recyclerView.setLayoutManager(m_layoutManager);
 
         m_dataHandlerDB = new DataHandlerDB(this);
-        m_soundEntries = m_dataHandlerDB.getAllSoundEntries();
-        m_adapterSounds = new AdapterSounds(this, m_soundEntries);
-        m_recyclerView.setAdapter(m_adapterSounds);
+        loadSoundEntries();
+
+        m_mediaHandler = new MediaHandler(this);
 
         Log.d(TAG, "SoundEntries size: " + m_soundEntries.size());
 
@@ -78,6 +80,12 @@ public class MainActivity extends AppCompatActivity implements
                         .setAction("Action", null).show();*/
             }
         });
+    }
+
+    private void loadSoundEntries() {
+        m_soundEntries = m_dataHandlerDB.getAllSoundEntries();
+        m_adapterSounds = new AdapterSounds(this, m_soundEntries);
+        m_recyclerView.setAdapter(m_adapterSounds);
     }
 
     @Override
@@ -98,6 +106,12 @@ public class MainActivity extends AppCompatActivity implements
         if (id == R.id.action_settings) {
             return true;
         }
+        if (id == R.id.action_deleteAll) {
+            m_dataHandlerDB.deleteTable(DataHandlerDB.SOUND_TABLE);
+            loadSoundEntries();
+            return true;
+
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -105,11 +119,12 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onNewRecordEntryCreated(SoundEntry soundEntry) {
-
+        loadSoundEntries();
     }
 
     @Override
-    public void onPlaySoundOfEntries(SoundEntry soundEntry) {
-
+    public void onPlaySoundOfEntries(SoundEntry soundEntry, MediaHandler.OnPlayingComplete listener) {
+        Log.d(TAG, "SoundEntries Play Sound");
+        m_mediaHandler.startPlaying(soundEntry.getSoundPath(), listener);
     }
 }

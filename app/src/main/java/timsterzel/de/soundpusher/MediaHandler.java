@@ -39,7 +39,7 @@ public class MediaHandler {
     private String m_tmpAudioName;
 
 
-    private OnPlayingComplete m_onPlayingCompleteListener;
+    //private OnPlayingComplete m_onPlayingCompleteListener;
 
     interface OnPlayingComplete {
         void onPlayingComplete();
@@ -55,7 +55,7 @@ public class MediaHandler {
         m_fileExtension = ".3gp";
     }
 
-    public void setOnPlayingCompleteListener(OnPlayingComplete listener) { m_onPlayingCompleteListener = listener; }
+    //public void setOnPlayingCompleteListener(OnPlayingComplete listener) { m_onPlayingCompleteListener = listener; }
 
     public boolean isRecording() { return m_recording; }
 
@@ -95,7 +95,7 @@ public class MediaHandler {
             m_recording = false;
         }
     }
-
+    /*
     public void startPlaying() {
         m_player = new MediaPlayer();
         m_player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -116,6 +116,35 @@ public class MediaHandler {
         }
         m_playing = true;
     }
+    */
+
+    public void startPlaying(String path, final OnPlayingComplete listener) {
+        m_player = new MediaPlayer();
+        m_player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                /*
+                if (m_onPlayingCompleteListener != null) {
+                    m_onPlayingCompleteListener.onPlayingComplete();
+                }*/
+                if (listener != null) {
+                    listener.onPlayingComplete();
+                }
+            }
+        });
+        try {
+            m_player.setDataSource(path);
+            //m_player.setVolume(50.f, 50.f);
+            m_player.prepare();
+            m_player.start();
+        } catch (IOException e) {
+            Log.e(TAG, "Play prepare failed: ", e);
+        }
+        m_playing = true;
+
+    }
+
+
 
 
 

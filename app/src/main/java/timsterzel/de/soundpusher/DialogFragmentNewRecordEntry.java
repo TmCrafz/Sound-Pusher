@@ -102,7 +102,7 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
         m_alertDialog = builder.create();
 
         m_mediaHandler = new MediaHandler(getActivity());
-        m_mediaHandler.setOnPlayingCompleteListener(new MediaHandler.OnPlayingComplete() {
+        /*m_mediaHandler.setOnPlayingCompleteListener(new MediaHandler.OnPlayingComplete() {
             @Override
             public void onPlayingComplete() {
                 // If playback is completed, user can replay the sound or record a new one
@@ -110,6 +110,7 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
                 m_btnPlay.setActive(false);
             }
         });
+        */
 
         m_layoutMediaButtonBar = (RelativeLayout) view.findViewById(R.id.layoutMediaButtonBar);
         m_btnRecord = (MediaButton) view.findViewById(R.id.btnRecord);
@@ -207,7 +208,14 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
 
     private void onPlay(boolean start) {
         if (start) {
-            m_mediaHandler.startPlaying();
+            m_mediaHandler.startPlaying(m_mediaHandler.getTmpFilePath(), new MediaHandler.OnPlayingComplete() {
+                @Override
+                public void onPlayingComplete() {
+                    // If playback is completed, user can replay the sound or record a new one
+                    m_btnRecord.setEnabled(true);
+                    m_btnPlay.setActive(false);
+                }
+            });
             // If something is played, user can not record something
             m_btnRecord.setEnabled(false);
         }
