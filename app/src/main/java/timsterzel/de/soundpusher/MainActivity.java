@@ -121,7 +121,6 @@ public class MainActivity extends AppCompatActivity implements
     public void onNewRecordEntryCreated(SoundEntry soundEntry) {
         m_soundEntries.add(soundEntry);
         m_adapterSounds.notifyItemInserted(m_soundEntries.indexOf(soundEntry));
-        //loadSoundEntries();
     }
 
     @Override

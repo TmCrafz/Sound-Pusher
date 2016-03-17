@@ -75,7 +75,7 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
             m_imageViewSound.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (m_soundEntry != null) {
+                    if (m_soundEntry != null && !m_isSoundPlaying) {
                         m_isSoundPlaying = true;
                         m_imageViewSound.setImageResource(R.drawable.ic_pause_circle_fill_128dp);
                         MediaHandler.OnPlayingComplete playCompleteListener = new MediaHandler.OnPlayingComplete() {
