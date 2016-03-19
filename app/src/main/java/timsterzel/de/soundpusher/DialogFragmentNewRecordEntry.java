@@ -30,7 +30,7 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
     public static final String TAG_SHOWN = "DialogFragmentNewRecordEntry";
 
 
-    private ImageView imageView_backgroundImage;
+    private ImageView m_imageViewBackgroundImage;
     private TextView m_txtRecordTime;
     private RelativeLayout m_layoutMediaButtonBar;
     private MediaButton m_btnRecord;
@@ -113,7 +113,7 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
         });
         */
 
-        imageView_backgroundImage = (ImageView) view.findViewById(R.id.imageView_backgroundImage);
+        m_imageViewBackgroundImage = (ImageView) view.findViewById(R.id.imageViewBackgroundImage);
         m_txtRecordTime = (TextView) view.findViewById(R.id.txtRecordTime);
         m_layoutMediaButtonBar = (RelativeLayout) view.findViewById(R.id.layoutMediaButtonBar);
         m_btnRecord = (MediaButton) view.findViewById(R.id.btnRecord);
@@ -199,7 +199,10 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
             m_btnPlay.setEnabled(false);
             // User can now save record while it is recording
             m_btnSave.setEnabled(false);
-            // SHow the recording time
+
+
+            m_imageViewBackgroundImage.setImageResource(R.drawable.ic_mic_dialog_bg_red);
+            // Show the recording time
             m_txtRecordTime.setVisibility(View.VISIBLE);
             // Set the recording time to 00:00
             m_txtRecordTime.setText(getString(R.string.txt_recordTime, 0, 0, 0, 0));
@@ -214,6 +217,8 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
             m_btnPlay.setEnabled(true);
             // User can save the sound now
             m_btnSave.setEnabled(true);
+            m_imageViewBackgroundImage.setVisibility(View.VISIBLE);
+            m_imageViewBackgroundImage.setImageResource(R.drawable.ic_mic_dialog_bg);
         }
     }
 
@@ -244,10 +249,13 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
             public void run() {
                 m_recordTime = 0;
                 m_threadRunning = true;
-                long startTime = System.currentTimeMillis();
+                // Timer for counting the seconds of recording
+                long startTimeSec = System.currentTimeMillis();
+                // Timer for determine when record image change (from visible to invisible)
+                long startTimeBg = System.currentTimeMillis();
                 while (m_threadRunning) {
-                    long elapsedTime = System.currentTimeMillis() - startTime;
-                    // Cnt up every 1 Second
+                    long elapsedTime = System.currentTimeMillis() - startTimeSec;
+                    // Update time every 1 Second
                     if (elapsedTime >= 1000) {
                         m_recordTime += 1;
                         getActivity().runOnUiThread(new Runnable() {
@@ -264,9 +272,23 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
                                 m_txtRecordTime.setText(getString(R.string.txt_recordTime, minutesLeft, minutesRight, secondsLeft, secondsRight));
                             }
                         });
-                        startTime = System.currentTimeMillis();
+                        startTimeSec = System.currentTimeMillis();
                     }
-
+                    elapsedTime = System.currentTimeMillis() - startTimeBg;
+                    if (elapsedTime >= 800) {
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (m_imageViewBackgroundImage.getVisibility() == View.VISIBLE) {
+                                    m_imageViewBackgroundImage.setVisibility(View.INVISIBLE);
+                                }
+                                else {
+                                    m_imageViewBackgroundImage.setVisibility(View.VISIBLE);
+                                }
+                            }
+                        });
+                        startTimeBg = System.currentTimeMillis();
+                    }
                 }
             }
         });

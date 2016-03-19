@@ -16,7 +16,7 @@
         android:animateLayoutChanges="true" >
 
         <ImageView
-            android:id="@+id/imageView_backgroundImage"
+            android:id="@+id/imageViewBackgroundImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_mic_dialog_bg"
@@ -29,7 +29,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="00:00"
             android:id="@+id/txtRecordTime"
-            android:layout_below="@+id/imageView_backgroundImage"
+            android:layout_below="@+id/imageViewBackgroundImage"
             android:visibility="invisible"
             android:layout_centerHorizontal="true" />
 
