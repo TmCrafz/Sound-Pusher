@@ -6,6 +6,7 @@
 
     <string name="txt_SoundName">Sound Name</string>
     <string name="txt_actionModeMainTitle">Edit Sounds</string>
+    <string name="txt_recordTime">%1$s:%2$s</string>
 
     <string name="txt_newSoundNameDummy">New Sound</string>
 
