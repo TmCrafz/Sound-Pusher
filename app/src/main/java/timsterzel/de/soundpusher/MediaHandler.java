@@ -72,10 +72,12 @@ public class MediaHandler {
         m_recorder = new MediaRecorder();
         m_recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
 
+        //m_recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         m_recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+
         m_recorder.setOutputFile(getTmpFilePath());
         //m_recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-        m_recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+        m_recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_WB);
 
         try {
             m_recorder.prepare();

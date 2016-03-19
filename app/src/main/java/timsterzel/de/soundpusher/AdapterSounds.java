@@ -70,7 +70,7 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
         return m_soundEntries.size();
     }
 
-    public static class SoundViewHolder extends RecyclerView.ViewHolder {
+    public static class SoundViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
         private boolean m_isSoundPlaying;
 
@@ -89,11 +89,9 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
             m_imageViewSound = (ImageView) itemView.findViewById(R.id.imageViewSound);
             m_txtSoundName = (TextView) itemView.findViewById(R.id.txtSoundName);
             // Let Activity play the sound
-            m_imageViewSound.setOnClickListener(new View.OnClickListener() {
+            /*m_imageViewSound.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-
                     if (!m_inEditMode && m_listener != null && !m_isSoundPlaying) {
                         m_isSoundPlaying = true;
                         m_imageViewSound.setImageResource(R.drawable.ic_pause_circle_fill_128dp);
@@ -115,10 +113,42 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
                         m_listener.onDeleteSoundEntry(m_soundEntry);
                     }
                 }
-            });
+            });*/
+            itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
 
         }
 
+        @Override
+        public boolean onLongClick(View v) {
+            Log.d(TAG, "TESTTEST LONG CLICK");
+
+            return true;
+        }
+
+        @Override
+        public void onClick(View v) {
+            if (!m_inEditMode && m_listener != null && !m_isSoundPlaying) {
+                m_isSoundPlaying = true;
+                m_imageViewSound.setImageResource(R.drawable.ic_pause_circle_fill_128dp);
+                MediaHandler.OnPlayingComplete playCompleteListener = new MediaHandler.OnPlayingComplete() {
+                    @Override
+                    public void onPlayingComplete() {
+                        m_isSoundPlaying = false;
+                        m_imageViewSound.setImageResource(R.drawable.ic_play_circle_fill_128dp);
+                    }
+                };
+                m_listener.onPlaySoundOfEntry(m_soundEntry, playCompleteListener);
+            }
+            else if (!m_inEditMode && m_listener != null && m_isSoundPlaying) {
+                m_isSoundPlaying = false;
+                m_imageViewSound.setImageResource(R.drawable.ic_play_circle_fill_128dp);
+                m_listener.onStopSoundOfEntry(m_soundEntry);
+            }
+            else if (m_inEditMode) {
+                m_listener.onDeleteSoundEntry(m_soundEntry);
+            }
+        }
     }
 
 }
