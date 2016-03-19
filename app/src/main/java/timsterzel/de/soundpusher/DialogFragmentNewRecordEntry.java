@@ -160,8 +160,9 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
                 //m_edTxtRecordName.setVisibility(View.VISIBLE);
             }
         });
-        // User can only save record if something was recorded
+        // User can only save or play record if something was recorded
         m_btnSave.setEnabled(false);
+        m_btnPlay.setEnabled(false);
 
         m_inRecordMode = true;
 
