@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="TEST SOUND" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="TIME SOUND" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
@@ -50,23 +50,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DialogFragmentNewRecordEntry.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DialogFragmentNewRecordEntry.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/DialogFragmentNewRecordEntry.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="158" column="30" selection-start-line="158" selection-start-column="30" selection-end-line="158" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.43925235">
+              <caret line="252" column="38" selection-start-line="252" selection-start-column="38" selection-end-line="252" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2182#2369#0" expanded="true" />
-                <element signature="e#2368#2369#0" expanded="true" />
-                <element signature="e#2438#3313#0" expanded="true" />
-                <element signature="e#3312#3313#0" expanded="true" />
-                <element signature="e#4343#4821#0" expanded="true" />
-                <element signature="e#4820#4821#0" expanded="true" />
-                <element signature="e#4862#5219#0" expanded="true" />
-                <element signature="e#5218#5219#0" expanded="true" />
-                <element signature="e#5260#5883#0" expanded="true" />
-                <element signature="e#5882#5883#0" expanded="true" />
+                <element signature="e#2547#2734#0" expanded="true" />
+                <element signature="e#2733#2734#0" expanded="true" />
+                <element signature="e#2803#3678#0" expanded="true" />
+                <element signature="e#3677#3678#0" expanded="true" />
+                <element signature="e#4883#5361#0" expanded="true" />
+                <element signature="e#5360#5361#0" expanded="true" />
+                <element signature="e#5402#5759#0" expanded="true" />
+                <element signature="e#5758#5759#0" expanded="true" />
+                <element signature="e#5800#6423#0" expanded="true" />
+                <element signature="e#6422#6423#0" expanded="true" />
+                <element signature="e#8966#10136#0" expanded="true" />
+                <element signature="e#9441#10091#0" expanded="true" />
+                <element signature="e#9953#10041#0" expanded="true" />
+                <element signature="e#10090#10091#0" expanded="true" />
+                <element signature="e#10135#10136#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -76,17 +81,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-3.75">
-              <caret line="8" column="32" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values-de/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.6875">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -98,24 +93,24 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.823529">
-              <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
+            <state vertical-scroll-proportion="-11.470589">
+              <caret line="29" column="42" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="42" />
               <folding>
-                <element signature="e#1801#1834#0" expanded="true" />
-                <element signature="e#3501#3534#0" expanded="true" />
-                <element signature="e#3563#3598#0" expanded="true" />
-                <element signature="e#3628#3663#0" expanded="true" />
-                <element signature="e#3691#3724#0" expanded="true" />
-                <element signature="e#4354#4377#0" expanded="true" />
+                <element signature="e#1797#1830#0" expanded="true" />
+                <element signature="e#3497#3530#0" expanded="true" />
+                <element signature="e#3559#3594#0" expanded="true" />
+                <element signature="e#3624#3659#0" expanded="true" />
+                <element signature="e#3687#3720#0" expanded="true" />
+                <element signature="e#4350#4373#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ic_mic_dialog_bg_red.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ic_mic_dialog_bg_red.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_mic_dialog_bg_red.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1682243">
+            <state vertical-scroll-proportion="0.0">
               <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
               <folding />
             </state>
@@ -1799,10 +1794,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/AdapterSounds.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/MediaHandler.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/DialogFragmentNewRecordEntry.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_fragment_new_record_entry.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_mic_dialog_bg_red.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_fragment_new_record_entry.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/DialogFragmentNewRecordEntry.java" />
       </list>
     </option>
   </component>
@@ -2376,7 +2371,7 @@
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22269808" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22269808" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2430,16 +2425,21 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2182#2369#0" expanded="true" />
-            <element signature="e#2368#2369#0" expanded="true" />
-            <element signature="e#2438#3313#0" expanded="true" />
-            <element signature="e#3312#3313#0" expanded="true" />
-            <element signature="e#4343#4821#0" expanded="true" />
-            <element signature="e#4820#4821#0" expanded="true" />
-            <element signature="e#4862#5219#0" expanded="true" />
-            <element signature="e#5218#5219#0" expanded="true" />
-            <element signature="e#5260#5883#0" expanded="true" />
-            <element signature="e#5882#5883#0" expanded="true" />
+            <element signature="e#2547#2734#0" expanded="true" />
+            <element signature="e#2733#2734#0" expanded="true" />
+            <element signature="e#2803#3678#0" expanded="true" />
+            <element signature="e#3677#3678#0" expanded="true" />
+            <element signature="e#4883#5361#0" expanded="true" />
+            <element signature="e#5360#5361#0" expanded="true" />
+            <element signature="e#5402#5759#0" expanded="true" />
+            <element signature="e#5758#5759#0" expanded="true" />
+            <element signature="e#5800#6423#0" expanded="true" />
+            <element signature="e#6422#6423#0" expanded="true" />
+            <element signature="e#8966#10136#0" expanded="true" />
+            <element signature="e#9441#10091#0" expanded="true" />
+            <element signature="e#9953#10041#0" expanded="true" />
+            <element signature="e#10090#10091#0" expanded="true" />
+            <element signature="e#10135#10136#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2529,16 +2529,21 @@
           <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2182#2369#0" expanded="true" />
-            <element signature="e#2368#2369#0" expanded="true" />
-            <element signature="e#2438#3313#0" expanded="true" />
-            <element signature="e#3312#3313#0" expanded="true" />
-            <element signature="e#4343#4821#0" expanded="true" />
-            <element signature="e#4820#4821#0" expanded="true" />
-            <element signature="e#4862#5219#0" expanded="true" />
-            <element signature="e#5218#5219#0" expanded="true" />
-            <element signature="e#5260#5883#0" expanded="true" />
-            <element signature="e#5882#5883#0" expanded="true" />
+            <element signature="e#2547#2734#0" expanded="true" />
+            <element signature="e#2733#2734#0" expanded="true" />
+            <element signature="e#2803#3678#0" expanded="true" />
+            <element signature="e#3677#3678#0" expanded="true" />
+            <element signature="e#4883#5361#0" expanded="true" />
+            <element signature="e#5360#5361#0" expanded="true" />
+            <element signature="e#5402#5759#0" expanded="true" />
+            <element signature="e#5758#5759#0" expanded="true" />
+            <element signature="e#5800#6423#0" expanded="true" />
+            <element signature="e#6422#6423#0" expanded="true" />
+            <element signature="e#8966#10136#0" expanded="true" />
+            <element signature="e#9441#10091#0" expanded="true" />
+            <element signature="e#9953#10041#0" expanded="true" />
+            <element signature="e#10090#10091#0" expanded="true" />
+            <element signature="e#10135#10136#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2849,46 +2854,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/DialogFragmentNewRecordEntry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="158" column="30" selection-start-line="158" selection-start-column="30" selection-end-line="158" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2182#2369#0" expanded="true" />
-            <element signature="e#2368#2369#0" expanded="true" />
-            <element signature="e#2438#3313#0" expanded="true" />
-            <element signature="e#3312#3313#0" expanded="true" />
-            <element signature="e#4343#4821#0" expanded="true" />
-            <element signature="e#4820#4821#0" expanded="true" />
-            <element signature="e#4862#5219#0" expanded="true" />
-            <element signature="e#5218#5219#0" expanded="true" />
-            <element signature="e#5260#5883#0" expanded="true" />
-            <element signature="e#5882#5883#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-de/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.6875">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.75">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_mic_dialog_bg_red.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -2898,24 +2875,57 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.823529">
-          <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
+        <state vertical-scroll-proportion="-11.470589">
+          <caret line="29" column="42" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="42" />
           <folding>
-            <element signature="e#1801#1834#0" expanded="true" />
-            <element signature="e#3501#3534#0" expanded="true" />
-            <element signature="e#3563#3598#0" expanded="true" />
-            <element signature="e#3628#3663#0" expanded="true" />
-            <element signature="e#3691#3724#0" expanded="true" />
-            <element signature="e#4354#4377#0" expanded="true" />
+            <element signature="e#1797#1830#0" expanded="true" />
+            <element signature="e#3497#3530#0" expanded="true" />
+            <element signature="e#3559#3594#0" expanded="true" />
+            <element signature="e#3624#3659#0" expanded="true" />
+            <element signature="e#3687#3720#0" expanded="true" />
+            <element signature="e#4350#4373#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_mic_dialog_bg_red.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-de/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1682243">
-          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.29821074">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.75">
+          <caret line="8" column="51" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/timsterzel/de/soundpusher/DialogFragmentNewRecordEntry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43925235">
+          <caret line="252" column="38" selection-start-line="252" selection-start-column="38" selection-end-line="252" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2547#2734#0" expanded="true" />
+            <element signature="e#2733#2734#0" expanded="true" />
+            <element signature="e#2803#3678#0" expanded="true" />
+            <element signature="e#3677#3678#0" expanded="true" />
+            <element signature="e#4883#5361#0" expanded="true" />
+            <element signature="e#5360#5361#0" expanded="true" />
+            <element signature="e#5402#5759#0" expanded="true" />
+            <element signature="e#5758#5759#0" expanded="true" />
+            <element signature="e#5800#6423#0" expanded="true" />
+            <element signature="e#6422#6423#0" expanded="true" />
+            <element signature="e#8966#10136#0" expanded="true" />
+            <element signature="e#9441#10091#0" expanded="true" />
+            <element signature="e#9953#10041#0" expanded="true" />
+            <element signature="e#10090#10091#0" expanded="true" />
+            <element signature="e#10135#10136#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

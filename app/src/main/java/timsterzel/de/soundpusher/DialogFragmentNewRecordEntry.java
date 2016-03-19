@@ -6,14 +6,19 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.io.File;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by tim on 13.03.16.
@@ -24,19 +29,19 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
 
     public static final String TAG_SHOWN = "DialogFragmentNewRecordEntry";
 
+
+    private ImageView imageView_backgroundImage;
+    private TextView m_txtRecordTime;
     private RelativeLayout m_layoutMediaButtonBar;
-
     private MediaButton m_btnRecord;
-
     private MediaButton m_btnPlay;
-
     private MediaButton m_btnSave;
+    private TextInputLayout m_edTxtLayRecordName;
+    private EditText m_edTxtRecordName;
 
     private MediaHandler m_mediaHandler;
 
-    private TextInputLayout m_edTxtLayRecordName;
 
-    private EditText m_edTxtRecordName;
     // The dialog has to states, the record mode (where the user can record sounds) and a mode where the user can
     // give the sound a name and save it
     private boolean m_inRecordMode;
@@ -44,6 +49,11 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
     private AlertDialog m_alertDialog;
 
     private DataHandlerDB m_dataHandlerDB;
+
+    private Thread m_threadCntTime;
+    private boolean m_threadRunning;
+    private long m_threadSleep;
+    private int m_recordTime;
 
     public interface OnNewRecordEntryCreatedListener {
         void onNewRecordEntryCreated(SoundEntry soundEntry);
@@ -104,6 +114,8 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
         });
         */
 
+        imageView_backgroundImage = (ImageView) view.findViewById(R.id.imageView_backgroundImage);
+        m_txtRecordTime = (TextView) view.findViewById(R.id.txtRecordTime);
         m_layoutMediaButtonBar = (RelativeLayout) view.findViewById(R.id.layoutMediaButtonBar);
         m_btnRecord = (MediaButton) view.findViewById(R.id.btnRecord);
         m_btnPlay = (MediaButton) view.findViewById(R.id.btnPlay);
@@ -158,6 +170,9 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
 
         m_inRecordMode = true;
 
+        initCountThread();
+
+
         return m_alertDialog;
     }
 
@@ -189,8 +204,10 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
             m_btnPlay.setEnabled(false);
             // User can now save record while it is recording
             m_btnSave.setEnabled(false);
+            m_threadCntTime.start();
         }
         else {
+            m_threadRunning = false;
             m_mediaHandler.stopRecording();
             // If recording is finished, user can play sound
             m_btnPlay.setEnabled(true);
@@ -220,7 +237,39 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
         }
     }
 
+    void initCountThread() {
+        m_threadSleep = 1000;
+        m_threadCntTime = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                m_recordTime = 0;
+                m_threadRunning = true;
+                while (m_threadRunning) {
+                    try {
+                        Thread.sleep(m_threadSleep);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    m_recordTime += 1;
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            int seconds = m_recordTime % 60;
+                            int minutes = m_recordTime / 60;
 
+                            int secondsRight = seconds % 10;
+                            int secondsLeft = seconds / 10;
+                            int minutesRight = minutes % 10;
+                            int minutesLeft = minutes / 10;
+                            m_txtRecordTime.setText(getString(R.string.txt_recordTime, minutesLeft, minutesRight, secondsLeft, secondsRight));
+                        }
+                    });
+                }
+
+            }
+        });
+
+    }
 
 
 }
