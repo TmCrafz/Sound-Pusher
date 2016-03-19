@@ -1,8 +1,11 @@
 package timsterzel.de.soundpusher;
 
 import android.app.FragmentManager;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.GridLayoutManager;
@@ -13,7 +16,9 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 
+import java.io.File;
 import java.util.ArrayList;
 
 
@@ -38,6 +43,9 @@ public class MainActivity extends AppCompatActivity implements
 
     private MediaHandler m_mediaHandler;
 
+    // The position of the item on which the user clicked long to get the context menu
+    private int m_contextItemPosition;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements
 
         m_dataHandlerDB = new DataHandlerDB(this);
         loadSoundEntries();
+
+        registerForContextMenu(m_recyclerView);
 
         m_mediaHandler = new MediaHandler(this);
 
@@ -149,6 +159,33 @@ public class MainActivity extends AppCompatActivity implements
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_share :
+                SoundEntry soundEntry = m_soundEntries.get(m_contextItemPosition);
+                shareSoundEntry(soundEntry);
+                return true;
+        }
+
+        return false;
+    }
+
+    private void shareSoundEntry(SoundEntry soundEntry) {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("audio/*");
+        File file = new File(soundEntry.getSoundPath());
+        Uri uri = Uri.fromFile(file);
+        shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        if (shareIntent.resolveActivity(getPackageManager()) != null)
+            startActivity(shareIntent);
+        else {
+            View rootView = findViewById(android.R.id.content);
+            Snackbar.make(rootView, getString(R.string.error_send), Snackbar.LENGTH_LONG).show();
+        }
+
+    }
+
 
     @Override
     public void onNewRecordEntryCreated(SoundEntry soundEntry) {
@@ -173,4 +210,11 @@ public class MainActivity extends AppCompatActivity implements
         m_dataHandlerDB.deleteSoundEntry(soundEntry.getID());
         m_adapterSounds.notifyItemRemoved(pos);
     }
+
+    @Override
+    public void onLongClickedItem(int position) {
+        m_contextItemPosition = position;
+    }
+
+
 }

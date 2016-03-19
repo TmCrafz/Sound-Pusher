@@ -2,9 +2,13 @@
     <string name="app_name">SoundPusher</string>
     <string name="action_settings">Optionen</string>
     <string name="action_edit">Bearbeiten</string>
+    <string name="action_share">Teilen</string>
 
     <string name="txt_SoundName">Sound Name</string>
     <string name="txt_actionModeMainTitle">Bearbeiten</string>
 
     <string name="txt_newSoundNameDummy">Neuer Sound</string>
+
+    <!-- Errors -->
+    <string name="error_send">Fehler beim senden</string>
 </resources>

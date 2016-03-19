@@ -1,9 +1,12 @@
 package timsterzel.de.soundpusher;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -22,16 +25,17 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
         void onPlaySoundOfEntry(SoundEntry soundEntry, MediaHandler.OnPlayingComplete listener);
         void onStopSoundOfEntry(SoundEntry soundEntry);
         void onDeleteSoundEntry(SoundEntry soundEntry);
+        void onLongClickedItem(int position);
     }
 
     private static final String TAG = AdapterSounds.class.getSimpleName();
 
-    private Context m_context;
+    private Activity m_context;
 
     private ArrayList<SoundEntry> m_soundEntries;
 
 
-    public AdapterSounds(Context context, ArrayList<SoundEntry> soundEntries) {
+    public AdapterSounds(Activity context, ArrayList<SoundEntry> soundEntries) {
         m_context = context;
         m_soundEntries = soundEntries;
         m_inEditMode = false;
@@ -52,9 +56,11 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
     @Override
     public void onBindViewHolder(SoundViewHolder holder, int position) {
         SoundEntry soundEntry = m_soundEntries.get(position);
+        holder.m_context = m_context;
         holder.m_isSoundPlaying = false;
         holder.m_inEditMode = m_inEditMode;
         holder.m_soundEntry = soundEntry;
+        holder.m_position = position;
         holder.m_txtSoundName.setText(soundEntry.getName());
         holder.m_listener = (OnHandleAdapterItemSoundActions) m_context;
         if (m_inEditMode) {
@@ -70,10 +76,10 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
         return m_soundEntries.size();
     }
 
-    public static class SoundViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+    public static class SoundViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener, View.OnCreateContextMenuListener {
 
+        private Activity m_context;
         private boolean m_isSoundPlaying;
-
         private boolean m_inEditMode;
 
         private OnHandleAdapterItemSoundActions m_listener;
@@ -82,6 +88,7 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
         private TextView m_txtSoundName;
 
         private SoundEntry m_soundEntry;
+        private int m_position;
 
 
         public SoundViewHolder(View itemView) {
@@ -116,14 +123,18 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
             });*/
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
-
+            itemView.setOnCreateContextMenuListener(this);
         }
 
         @Override
         public boolean onLongClick(View v) {
             Log.d(TAG, "TESTTEST LONG CLICK");
-
-            return true;
+            // We call this method so we can inform the activity about the clicked item position,
+            // because "item.getMenuInfo()" in "onContextItemSelected" of the activity is every time null
+            // (A bug?) and so we need another wy to get the position of the items position
+            m_listener.onLongClickedItem(m_position);
+            // Return false so onCreateContextMenu is called
+            return false;
         }
 
         @Override
@@ -149,6 +160,13 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
                 m_listener.onDeleteSoundEntry(m_soundEntry);
             }
         }
+
+        @Override
+        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+            MenuInflater inflater = m_context.getMenuInflater();
+            inflater.inflate(R.menu.menu_context_sound_entry, menu);
+        }
+
     }
 
 }
