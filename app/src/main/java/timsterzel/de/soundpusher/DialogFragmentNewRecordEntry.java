@@ -88,14 +88,6 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
                     m_dataHandlerDB.addSoundEntry(soundEntry);
                     m_listener.onNewRecordEntryCreated(soundEntry);
                 }
-
-
-
-
-                //SoundEntry soundEntry = new SoundEntry(0, )
-
-
-
             }
         });
         builder.setView(view);

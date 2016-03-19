@@ -147,6 +147,7 @@ public class AdapterSounds extends RecyclerView.Adapter<AdapterSounds.SoundViewH
                     public void onPlayingComplete() {
                         m_isSoundPlaying = false;
                         m_imageViewSound.setImageResource(R.drawable.ic_play_circle_fill_128dp);
+                        Log.d(TAG, "TEST SOUND onPlayingComplete");
                     }
                 };
                 m_listener.onPlaySoundOfEntry(m_soundEntry, playCompleteListener);

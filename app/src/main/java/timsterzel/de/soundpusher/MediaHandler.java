@@ -23,6 +23,8 @@ public class MediaHandler {
 
     private boolean m_playing;
 
+    private OnPlayingComplete m_playCompleteListener;
+
     private MediaRecorder m_recorder;
 
     private MediaPlayer m_player;
@@ -38,13 +40,9 @@ public class MediaHandler {
     // The name of the recors before the user choose one
     private String m_tmpAudioName;
 
-
-    //private OnPlayingComplete m_onPlayingCompleteListener;
-
     interface OnPlayingComplete {
         void onPlayingComplete();
     }
-
 
     public MediaHandler(Context context) {
         m_context = context;
@@ -69,6 +67,9 @@ public class MediaHandler {
     public String getTmpFilePath() { return m_tmpRecordPath + "/" + m_tmpAudioName + m_fileExtension; }
 
     public void startRecording() {
+        if (m_recorder != null && m_recording) {
+            stopRecording();
+        }
         m_recorder = new MediaRecorder();
         m_recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
 
@@ -97,38 +98,19 @@ public class MediaHandler {
             m_recording = false;
         }
     }
-    /*
-    public void startPlaying() {
-        m_player = new MediaPlayer();
-        m_player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                if (m_onPlayingCompleteListener != null) {
-                    m_onPlayingCompleteListener.onPlayingComplete();
-                }
-            }
-        });
-        try {
-            m_player.setDataSource(m_tmpRecordPath + "/" + m_tmpAudioName + m_fileExtension);
-            //m_player.setVolume(50.f, 50.f);
-            m_player.prepare();
-            m_player.start();
-        } catch (IOException e) {
-            Log.e(TAG, "Play prepare failed: ", e);
-        }
-        m_playing = true;
-    }
-    */
 
     public void startPlaying(String path, final OnPlayingComplete listener) {
+        // Only one media should played at the same time
+        if (m_player != null && m_player.isPlaying()) {
+            stopPlaying();
+        }
+        // It is important that the new listener overwrite the old after stopPlaying() is called,
+        // because stopPlaying call the listener from the actual playing sound
+        m_playCompleteListener = listener;
         m_player = new MediaPlayer();
         m_player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                /*
-                if (m_onPlayingCompleteListener != null) {
-                    m_onPlayingCompleteListener.onPlayingComplete();
-                }*/
                 if (listener != null) {
                     listener.onPlayingComplete();
                 }
@@ -151,6 +133,10 @@ public class MediaHandler {
             m_player.release();
             m_player = null;
             m_playing = false;
+            if (m_playCompleteListener != null) {
+                m_playCompleteListener.onPlayingComplete();
+            }
+
         }
     }
 
@@ -161,7 +147,5 @@ public class MediaHandler {
         String path = SoundFileHandler.moveFileToSoundPath(fileTmp, fileName);
         return path;
     }
-
-
 
 }
