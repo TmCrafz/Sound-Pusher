@@ -52,7 +52,6 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
 
     private Thread m_threadCntTime;
     private boolean m_threadRunning;
-    private long m_threadSleep;
     private int m_recordTime;
 
     public interface OnNewRecordEntryCreatedListener {
@@ -169,10 +168,6 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
         m_btnPlay.setEnabled(false);
 
         m_inRecordMode = true;
-
-        initCountThread();
-
-
         return m_alertDialog;
     }
 
@@ -204,6 +199,12 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
             m_btnPlay.setEnabled(false);
             // User can now save record while it is recording
             m_btnSave.setEnabled(false);
+            // SHow the recording time
+            m_txtRecordTime.setVisibility(View.VISIBLE);
+            // Set the recording time to 00:00
+            m_txtRecordTime.setText(getString(R.string.txt_recordTime, 0, 0, 0, 0));
+            // Start counting and showing recording time
+            initCountThread();
             m_threadCntTime.start();
         }
         else {
@@ -238,37 +239,37 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
     }
 
     void initCountThread() {
-        m_threadSleep = 1000;
         m_threadCntTime = new Thread(new Runnable() {
             @Override
             public void run() {
                 m_recordTime = 0;
                 m_threadRunning = true;
+                long startTime = System.currentTimeMillis();
                 while (m_threadRunning) {
-                    try {
-                        Thread.sleep(m_threadSleep);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    long elapsedTime = System.currentTimeMillis() - startTime;
+                    // Cnt up every 1 Second
+                    if (elapsedTime >= 1000) {
+                        m_recordTime += 1;
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                int seconds = m_recordTime % 60;
+                                int minutes = m_recordTime / 60;
+
+                                int secondsRight = seconds % 10;
+                                int secondsLeft = seconds / 10;
+                                int minutesRight = minutes % 10;
+                                int minutesLeft = minutes / 10;
+                                // Show the elapsed tim in Format mm:ss
+                                m_txtRecordTime.setText(getString(R.string.txt_recordTime, minutesLeft, minutesRight, secondsLeft, secondsRight));
+                            }
+                        });
+                        startTime = System.currentTimeMillis();
                     }
-                    m_recordTime += 1;
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            int seconds = m_recordTime % 60;
-                            int minutes = m_recordTime / 60;
 
-                            int secondsRight = seconds % 10;
-                            int secondsLeft = seconds / 10;
-                            int minutesRight = minutes % 10;
-                            int minutesLeft = minutes / 10;
-                            m_txtRecordTime.setText(getString(R.string.txt_recordTime, minutesLeft, minutesRight, secondsLeft, secondsRight));
-                        }
-                    });
                 }
-
             }
         });
-
     }
 
 
