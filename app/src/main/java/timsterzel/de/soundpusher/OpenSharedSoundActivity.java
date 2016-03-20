@@ -110,7 +110,8 @@ public class OpenSharedSoundActivity extends AppCompatActivity {
         File file = null;
         if (openMode == OpenMode.REGULAR) {
             file = new File(uri.toString());
-            FileHandler.moveFileToSoundPath(file, fileName);
+            Log.d(TAG, "OpenMode Regular File.getName(): " + file.getName() );
+            FileHandler.moveFileToSoundPath(file, file.getName());
         }
         // If the file is a attachment we have only the output stream instead of a file
         // so we have to create a file from the output stream
@@ -136,7 +137,7 @@ public class OpenSharedSoundActivity extends AppCompatActivity {
 
         // Create new Sound entry
         DataHandlerDB dataHandlerDB = new DataHandlerDB(this);
-        SoundEntry soundEntry = new SoundEntry(0, file.getAbsolutePath(), true, null, name, true);
+        SoundEntry soundEntry = new SoundEntry(0, file.getAbsolutePath(), false, null, name, false);
         dataHandlerDB.addSoundEntry(soundEntry);
 
         return true;
