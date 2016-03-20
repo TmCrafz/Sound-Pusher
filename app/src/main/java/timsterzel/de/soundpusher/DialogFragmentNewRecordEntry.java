@@ -91,7 +91,6 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
                     name = getString(R.string.txt_newSoundNameDummy);
                 }
                 String soundPath = m_mediaHandler.saveRecordPermanent(name);
-                Log.d(TAG, "SoundPath: " + soundPath);
                 if (soundPath != null) {
                     SoundEntry soundEntry = new SoundEntry(0, soundPath, false, null, name, true);
                     m_dataHandlerDB.addSoundEntry(soundEntry);

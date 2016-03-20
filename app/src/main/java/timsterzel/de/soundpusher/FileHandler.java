@@ -28,6 +28,8 @@ public class FileHandler {
             'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5' , '6', '7', '8', '9' };
 
 
+    public static String getSoundPath() { return SOUND_PATH; }
+
     public static void createSoundFilePathIfNotExists() {
         File file = new File(SOUND_PATH);
         if (!file.exists()) {
