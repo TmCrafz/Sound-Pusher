@@ -24,7 +24,8 @@
         </activity>
         <activity
             android:name=".OpenSharedSoundActivity"
-            android:label="@string/title_activity_open_shared_sound">
+            android:label="@string/title_activity_open_shared_sound"
+            android:parentActivityName="timsterzel.de.soundpusher.MainActivity" >
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

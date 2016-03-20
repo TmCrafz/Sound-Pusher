@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">SoundPusher</string>
+    <string name="title_activity_open_shared_sound">Neuer Sound</string>
     <string name="action_settings">Optionen</string>
     <string name="action_edit">Bearbeiten</string>
     <string name="action_share">Teilen</string>
@@ -10,7 +11,11 @@
 
     <string name="txt_newSoundNameDummy">Neuer Sound</string>
 
+    <!-- Toasts and Snackbars -->
+    <string name="txt_savedFile">Hinzugefügt</string>
 
     <!-- Errors -->
     <string name="error_send">Fehler beim senden</string>
+    <string name="error_addSharedFile">Fehler beim hinzufügen</string>
+
 </resources>

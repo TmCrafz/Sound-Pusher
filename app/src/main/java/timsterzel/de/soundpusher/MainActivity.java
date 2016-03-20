@@ -156,7 +156,6 @@ public class MainActivity extends AppCompatActivity implements
             m_adapterSounds.setIsInEditMode(true);
             m_adapterSounds.notifyDataSetChanged();
         }
-
         return super.onOptionsItemSelected(item);
     }
 
