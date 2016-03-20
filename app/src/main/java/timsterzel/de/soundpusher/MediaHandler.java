@@ -2,6 +2,7 @@ package timsterzel.de.soundpusher;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.util.Log;
@@ -49,7 +50,7 @@ public class MediaHandler {
         m_tmpRecordPath = context.getCacheDir().getAbsolutePath();
         Log.d(TAG, "m_tmpDirectoryPath: " + m_tmpRecordPath);
         m_tmpAudioName = "sound_tmp_1";
-        m_fileExtension = ".3gp";
+        m_fileExtension = ".aac";
     }
 
     //public void setOnPlayingCompleteListener(OnPlayingComplete listener) { m_onPlayingCompleteListener = listener; }
@@ -73,11 +74,12 @@ public class MediaHandler {
         m_recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
 
         //m_recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        m_recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+        m_recorder.setOutputFormat(MediaRecorder.OutputFormat.AAC_ADTS);
 
         m_recorder.setOutputFile(getTmpFilePath());
         //m_recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-        m_recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_WB);
+        m_recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+        //m_recorder.setAudioChannels(2);
 
         try {
             m_recorder.prepare();
@@ -115,6 +117,7 @@ public class MediaHandler {
                 }
             }
         });
+        //m_player.setAudioStreamType(AudioManager.STREAM_MUSIC);
         try {
             m_player.setDataSource(path);
             //m_player.setVolume(50.f, 50.f);

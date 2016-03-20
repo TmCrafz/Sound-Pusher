@@ -50,6 +50,18 @@
                     android:mimeType="audio/mpeg3"
                      />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.EDIT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="*"
+                    android:mimeType="audio/aac"
+                    />
+            </intent-filter>
+
 
 
         </activity>
