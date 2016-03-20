@@ -41,12 +41,7 @@ public class FileHandler {
             return null;
         }
         File fileNewPath = new File(SOUND_PATH + "/" + name);
-        Log.d(TAG, "SoundPath fileNewPath:" + fileNewPath.getAbsolutePath());
-
-        boolean copied = copyFile(file, fileNewPath);
-
-        Log.d(TAG, "SoundPath copied: " + copied);
-
+        copyFile(file, fileNewPath);
         return fileNewPath.getAbsolutePath();
     }
 
@@ -114,14 +109,13 @@ public class FileHandler {
         }
         // Change name as long we have a name that does not already exist
         while(doesFileNameAlreadyExists(str)) {
-            // remove last 3 chars
+            // remove last 3 chars (So the file name does not get to large)
             str = str.substring(str.length() - 3, str.length());
-            // add 3 new chars
+            // add 6 new chars
             str += getRandomFileNameExtension();
         }
         // add file extension to filename
         str += fileExtension;
-        Log.d(TAG, "Creates legal filename: " + str);
         return str;
     }
 
@@ -129,7 +123,7 @@ public class FileHandler {
     private static String getRandomFileNameExtension() {
         StringBuilder strBuilder = new StringBuilder();
         Random rand = new Random();
-        for (int i = 0; i != 3; i++) {
+        for (int i = 0; i != 6; i++) {
             int randNum = rand.nextInt(LEGAL_CHARS.length);
             strBuilder.append(LEGAL_CHARS[randNum]);
         }
@@ -163,10 +157,5 @@ public class FileHandler {
         }
         return false;
     }
-
-
-
-
-
 
 }

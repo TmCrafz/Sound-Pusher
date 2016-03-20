@@ -12,6 +12,7 @@
 
     <!-- Errors -->
     <string name="error_send">Error by sending</string>
+    <string name="title_activity_open_shared_sound">OpenSharedSoundActivity</string>
 
 
 </resources>
