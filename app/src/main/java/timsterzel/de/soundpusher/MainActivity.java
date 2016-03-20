@@ -16,7 +16,6 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.AdapterView;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -53,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        SoundFileHandler.createSoundFilePathIfNotExists();
+        FileHandler.createSoundFilePathIfNotExists();
 
         m_recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 

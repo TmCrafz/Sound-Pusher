@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
-import android.os.Environment;
 import android.util.Log;
 
 import java.io.File;
@@ -142,9 +141,9 @@ public class MediaHandler {
 
     public String saveRecordPermanent(String name) {
         name += m_fileExtension;
-        String fileName = SoundFileHandler.createLegalFilename(name);
+        String fileName = FileHandler.createLegalFilename(name);
         File fileTmp = new File(getTmpFilePath());
-        String path = SoundFileHandler.moveFileToSoundPath(fileTmp, fileName);
+        String path = FileHandler.moveFileToSoundPath(fileTmp, fileName);
         return path;
     }
 

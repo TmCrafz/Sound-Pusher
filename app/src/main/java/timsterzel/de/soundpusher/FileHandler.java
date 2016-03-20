@@ -1,14 +1,12 @@
 package timsterzel.de.soundpusher;
 
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.util.Log;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -17,9 +15,9 @@ import java.util.Random;
 /**
  * Created by tim on 16.03.16.
  */
-public class SoundFileHandler {
+public class FileHandler {
 
-    private static final String TAG = SoundFileHandler.class.getSimpleName();
+    private static final String TAG = FileHandler.class.getSimpleName();
 
     private static final String SOUND_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/RecordSounds";
 
