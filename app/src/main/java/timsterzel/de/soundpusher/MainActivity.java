@@ -77,13 +77,14 @@ public class MainActivity extends AppCompatActivity implements
                 FragmentManager fragmentManager = getFragmentManager();
                 DialogFragmentNewRecordEntry dialog = DialogFragmentNewRecordEntry.newInstance();
                 dialog.show(fragmentManager, DialogFragmentNewRecordEntry.TAG_SHOWN);
-
-
-                /*
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        m_adapterSounds.notifyDataSetChanged();
     }
 
     private void loadSoundEntries() {
