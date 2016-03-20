@@ -60,7 +60,10 @@ public class FileHandler {
     }
 
     public static void delete(String path) {
-        delete(new File(path));
+        File file = new File(path);
+        if (file.exists()) {
+            delete(new File(path));
+        }
     }
 
     private static boolean copyFile(File src, File dst)  {

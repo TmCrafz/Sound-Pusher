@@ -59,8 +59,7 @@
 
                 <data
                     android:host="*"
-                    android:mimeType="audio/aac"
-                    />
+                    android:mimeType="audio/aac" />
             </intent-filter>
 
 

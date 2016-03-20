@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v4.app.TaskStackBuilder;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -61,8 +60,6 @@ public class OpenSharedSoundActivity extends AppCompatActivity {
                 }
             }
         });
-
-
     }
 
     @Override
@@ -106,12 +103,7 @@ public class OpenSharedSoundActivity extends AppCompatActivity {
             uri = getIntent().getData();
             openMode = OpenMode.ATTACHMENT;
         }
-        /*
-        else{
-            uri = getIntent().getData();
-            openMode = OpenMode.ATTACHMENT;
-        }
-        */
+
         if (uri == null) {
             return false;
         }
