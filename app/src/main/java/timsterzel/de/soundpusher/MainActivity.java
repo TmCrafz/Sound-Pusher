@@ -206,6 +206,10 @@ public class MainActivity extends AppCompatActivity implements
     public void onDeleteSoundEntry(SoundEntry soundEntry) {
         int pos = m_soundEntries.indexOf(soundEntry);
         m_soundEntries.remove(pos);
+        FileHandler.delete(soundEntry.getSoundPath());
+        if (soundEntry.hasPicture()) {
+            FileHandler.delete(soundEntry.getPicturePath());
+        }
         m_dataHandlerDB.deleteSoundEntry(soundEntry.getID());
         m_adapterSounds.notifyItemRemoved(pos);
     }

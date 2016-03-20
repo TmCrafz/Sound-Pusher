@@ -50,6 +50,22 @@ public class FileHandler {
         return fileNewPath.getAbsolutePath();
     }
 
+    public static void delete(File file) {
+        if (file.isDirectory()) {
+            File[] files = file.listFiles();
+            for (File fileTmp : files) {
+                delete(fileTmp);
+            }
+        }
+        else {
+            file.delete();
+        }
+    }
+
+    public static void delete(String path) {
+        delete(new File(path));
+    }
+
     private static boolean copyFile(File src, File dst)  {
         InputStream in = null;
         OutputStream out = null;
