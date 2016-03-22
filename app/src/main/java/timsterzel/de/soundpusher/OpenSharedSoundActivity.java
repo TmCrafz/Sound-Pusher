@@ -239,6 +239,7 @@ public class OpenSharedSoundActivity extends AppCompatActivity {
 
     }
 
+
     private boolean saveSound() throws IOException {
         // Entry name is the name which is later shown in the app for this sound
         String entryName = m_edTxtRecordName.getText().toString();
@@ -256,6 +257,9 @@ public class OpenSharedSoundActivity extends AppCompatActivity {
         DataHandlerDB dataHandlerDB = new DataHandlerDB(this);
         SoundEntry soundEntry = new SoundEntry(0, fileNew.getAbsolutePath(), false, null, entryName, false);
         dataHandlerDB.addSoundEntry(soundEntry);
+
+        // delete tmp files
+        FileHandler.delete(FileHandler.getTmpSoundPath());
 
         return true;
     }
