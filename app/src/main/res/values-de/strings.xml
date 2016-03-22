@@ -17,5 +17,7 @@
     <!-- Errors -->
     <string name="error_send">Fehler beim senden</string>
     <string name="error_addSharedFile">Fehler beim hinzufügen</string>
+    <string name="error_loadingSharedFile">Fehler beim laden des Sounds</string>
+
 
 </resources>

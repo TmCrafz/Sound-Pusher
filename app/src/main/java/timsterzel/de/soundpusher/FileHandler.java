@@ -19,7 +19,8 @@ public class FileHandler {
 
     private static final String TAG = FileHandler.class.getSimpleName();
 
-    private static final String SOUND_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/RecordSounds";
+    private static final String SOUND_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/SoundPusher";
+    private static final String SOUND_PATH_TMP = SOUND_PATH + "/SoundPusherTmp";
 
 
     private final static char[] LEGAL_CHARS = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
@@ -30,14 +31,20 @@ public class FileHandler {
 
     public static String getSoundPath() { return SOUND_PATH; }
 
+    public static String getTmpSoundPath() { return  SOUND_PATH_TMP; }
+
     public static void createSoundFilePathIfNotExists() {
         File file = new File(SOUND_PATH);
         if (!file.exists()) {
             file.mkdir();
         }
+        File fileTmp = new File(SOUND_PATH_TMP);
+        if (!fileTmp.exists()) {
+            fileTmp.mkdir();
+        }
     }
 
-
+    /*
     public static String moveFileToSoundPath(File file, String name) {
         if (!file.exists()) {
             return null;
@@ -45,6 +52,15 @@ public class FileHandler {
         File fileNewPath = new File(SOUND_PATH + "/" + name);
         copyFile(file, fileNewPath);
         return fileNewPath.getAbsolutePath();
+    }*/
+
+    public static File moveFileTo(File file, String path) {
+        if (!file.exists()) {
+            return null;
+        }
+        File fileNewPath = new File(path);
+        copyFile(file, fileNewPath);
+        return fileNewPath;
     }
 
     public static void delete(File file) {
@@ -88,8 +104,12 @@ public class FileHandler {
             success = false;
         } finally {
             try {
-                in.close();
-                out.close();
+                if (in != null) {
+                    in.close();
+                }
+                if (out != null) {
+                    out.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -97,15 +117,30 @@ public class FileHandler {
         return success;
     }
 
-    public static String createLegalFilename(String str) {
+    public static String getFileExtension(String fileName) {
         String fileExtension = "";
-        // handle file extension if there is one
-        if (str.lastIndexOf('.') >= 0) {
-            // Get file extension so we can add it later
-            fileExtension = str.substring(str.lastIndexOf('.'), str.length());
-            // remove file extension
-            str = str.substring(0, str.lastIndexOf('.'));
+        // Only split and get file extension if there is one
+        if (fileName.lastIndexOf('.') >= 0) {
+            // Get file extension
+            fileExtension = fileName.substring(fileName.lastIndexOf('.'), fileName.length());
         }
+        return fileExtension;
+    }
+
+    public static String getWithoutFileExtension(String fileName) {
+        // Only remove file extension if there is one
+        if (fileName.lastIndexOf('.') >= 0) {
+            // remove file extension
+            return fileName.substring(0, fileName.lastIndexOf('.'));
+        }
+        return fileName;
+    }
+
+    public static String createLegalFilename(String str) {
+        // Get file extension so we can add it later
+        String fileExtension = getFileExtension(str);
+        // remove file extension
+        str = getWithoutFileExtension(str);
 
         str = removeIllegalChars(str);
         // If filename is to short add random strings

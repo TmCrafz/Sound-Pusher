@@ -24,6 +24,7 @@
         </activity>
         <activity
             android:name=".OpenSharedSoundActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_open_shared_sound"
             android:parentActivityName="timsterzel.de.soundpusher.MainActivity" >
 

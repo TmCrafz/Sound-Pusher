@@ -68,8 +68,6 @@ public class MainActivity extends AppCompatActivity implements
 
         m_mediaHandler = new MediaHandler(this);
 
-        Log.d(TAG, "SoundEntries size: " + m_soundEntries.size());
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

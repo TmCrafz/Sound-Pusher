@@ -12,11 +12,18 @@
 
     <string name="txt_newSoundNameDummy">New Sound</string>
 
+    <!-- Progressbar -->
+    <string name="pb_loading">Loading</string>
+    <string name="pb_saving">Saving</string>
+
+
+
     <!-- Toasts and Snackbars -->
     <string name="txt_savedFile">Saved</string>
 
     <!-- Errors -->
     <string name="error_send">Error by sending</string>
     <string name="error_addSharedFile">Error by adding file</string>
+    <string name="error_loadingSharedFile">Error by loading sound</string>
 
 </resources>

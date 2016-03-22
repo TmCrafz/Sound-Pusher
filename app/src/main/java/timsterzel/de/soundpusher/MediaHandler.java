@@ -146,8 +146,8 @@ public class MediaHandler {
         name += m_fileExtension;
         String fileName = FileHandler.createLegalFilename(name);
         File fileTmp = new File(getTmpFilePath());
-        String path = FileHandler.moveFileToSoundPath(fileTmp, fileName);
-        return path;
+        File fileNew = FileHandler.moveFileTo(fileTmp, FileHandler.getSoundPath() + "/" + fileName);
+        return fileNew.getAbsolutePath();
     }
 
 }
