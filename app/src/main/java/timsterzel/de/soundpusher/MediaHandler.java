@@ -144,9 +144,9 @@ public class MediaHandler {
 
     public String saveRecordPermanent(String name) {
         name += m_fileExtension;
-        String fileName = FileHandler.createLegalFilename(name);
+        String fileName = FileHandler.createLegalFilename(m_context, name);
         File fileTmp = new File(getTmpFilePath());
-        File fileNew = FileHandler.moveFileTo(fileTmp, FileHandler.getSoundPath() + "/" + fileName);
+        File fileNew = FileHandler.moveFileTo(fileTmp, FileHandler.getInternalSoundPath(m_context) + "/" + fileName);
         return fileNew.getAbsolutePath();
     }
 

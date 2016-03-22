@@ -1,5 +1,7 @@
 package timsterzel.de.soundpusher;
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
 
@@ -19,8 +21,11 @@ public class FileHandler {
 
     private static final String TAG = FileHandler.class.getSimpleName();
 
-    private static final String SOUND_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/SoundPusher";
-    private static final String SOUND_PATH_TMP = SOUND_PATH + "/SoundPusherTmp";
+    //private static final String SOUND_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/SoundPusher";
+    //private static final String SOUND_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/SoundPusher";
+
+    private static final String SOUND_PATH = "/Sounds";
+    private static final String SOUND_PATH_TMP = "/SoundsTmp";
 
 
     private final static char[] LEGAL_CHARS = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
@@ -29,16 +34,20 @@ public class FileHandler {
             'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5' , '6', '7', '8', '9' };
 
 
-    public static String getSoundPath() { return SOUND_PATH; }
+    //public static String getSoundPath() { return SOUND_PATH; }
+    public static String getInternalSoundPath(Context context) { return context.getFilesDir() + SOUND_PATH; }
 
-    public static String getTmpSoundPath() { return  SOUND_PATH_TMP; }
+    //public static String getTmpSoundPath() { return  SOUND_PATH_TMP; }
+    public static String getInternalTmpSoundPath(Context context) { return  context.getFilesDir() + SOUND_PATH_TMP; }
 
-    public static void createSoundFilePathIfNotExists() {
-        File file = new File(SOUND_PATH);
+
+
+    public static void createSoundFilePathIfNotExists(Context context) {
+        File file = new File(getInternalSoundPath(context));
         if (!file.exists()) {
             file.mkdir();
         }
-        File fileTmp = new File(SOUND_PATH_TMP);
+        File fileTmp = new File(getInternalTmpSoundPath(context));
         if (!fileTmp.exists()) {
             fileTmp.mkdir();
         }
@@ -136,7 +145,7 @@ public class FileHandler {
         return fileName;
     }
 
-    public static String createLegalFilename(String str) {
+    public static String createLegalFilename(Context context, String str) {
         // Get file extension so we can add it later
         String fileExtension = getFileExtension(str);
         // remove file extension
@@ -148,7 +157,7 @@ public class FileHandler {
             str += getRandomFileNameExtension();
         }
         // Change name as long we have a name that does not already exist
-        while(doesFileNameAlreadyExists(str)) {
+        while(doesFileNameAlreadyExists(getInternalSoundPath(context), str)) {
             // remove last 3 chars (So the file name does not get to large)
             str = str.substring(str.length() - 3, str.length());
             // add 6 new chars
@@ -183,8 +192,8 @@ public class FileHandler {
         return strBuilder.toString();
     }
 
-    private static boolean doesFileNameAlreadyExists(String name) {
-        File soundDirectory = new File(SOUND_PATH);
+    private static boolean doesFileNameAlreadyExists(String path, String name) {
+        File soundDirectory = new File(path);
         // Remove file extension from file if there is one
         name = name.lastIndexOf('.') >= 0 ? name.substring(0, name.lastIndexOf('.')) : name;
 

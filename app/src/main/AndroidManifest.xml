@@ -62,10 +62,18 @@
                     android:host="*"
                     android:mimeType="audio/aac" />
             </intent-filter>
-
-
-
         </activity>
+        <!-- Important to share internal files -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="timsterzel.de.soundpusher.fileprovider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
     </application>
 
 </manifest>

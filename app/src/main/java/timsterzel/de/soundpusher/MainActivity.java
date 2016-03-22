@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.GridLayoutManager;
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FileHandler.createSoundFilePathIfNotExists();
+        FileHandler.createSoundFilePathIfNotExists(this);
 
         m_recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
@@ -170,11 +171,29 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void shareSoundEntry(SoundEntry soundEntry) {
+        /*
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("audio/*");
         File file = new File(soundEntry.getSoundPath());
         Uri uri = Uri.fromFile(file);
         shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        if (shareIntent.resolveActivity(getPackageManager()) != null)
+            startActivity(shareIntent);
+        else {
+            View rootView = findViewById(android.R.id.content);
+            Snackbar.make(rootView, getString(R.string.error_send), Snackbar.LENGTH_LONG).show();
+        } */
+
+        // Sharing files from internal storage:
+        // http://developer.android.com/training/secure-file-sharing/setup-sharing.html
+        // http://developer.android.com/training/secure-file-sharing/share-file.html
+        File file = new File(soundEntry.getSoundPath());
+        Uri uri = FileProvider.getUriForFile(MainActivity.this, "timsterzel.de.soundpusher.fileprovider", file);
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("audio/*");
+        shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         if (shareIntent.resolveActivity(getPackageManager()) != null)
             startActivity(shareIntent);
         else {

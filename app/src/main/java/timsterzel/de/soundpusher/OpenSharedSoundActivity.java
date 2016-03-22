@@ -190,7 +190,7 @@ public class OpenSharedSoundActivity extends AppCompatActivity {
         if (name.length() == 0) {
             name = getString(R.string.txt_newSoundNameDummy);
         }
-        String fileName = FileHandler.createLegalFilename(name);
+        String fileName = FileHandler.createLegalFilename(this, name);
 
         Uri uri = null;
         OpenMode openMode = null;
@@ -209,7 +209,7 @@ public class OpenSharedSoundActivity extends AppCompatActivity {
         //File file = null;
         if (openMode == OpenMode.REGULAR) {
             m_fileSound = new File(uri.toString());
-            m_fileSound = FileHandler.moveFileTo(m_fileSound, FileHandler.getTmpSoundPath() + "/" + m_fileSound.getName());
+            m_fileSound = FileHandler.moveFileTo(m_fileSound, FileHandler.getInternalSoundPath(this) + "/" + m_fileSound.getName());
             if (m_fileSound == null)
                 Log.e(TAG, "m_fileSound is null O.o");
 
@@ -224,7 +224,7 @@ public class OpenSharedSoundActivity extends AppCompatActivity {
             MimeTypeMap mime = MimeTypeMap.getSingleton();
             String fileExtension = mime.getExtensionFromMimeType(cr.getType(uri));
 
-            m_fileSound = new File(FileHandler.getTmpSoundPath() + "/" + fileName + "." + fileExtension);
+            m_fileSound = new File(FileHandler.getInternalTmpSoundPath(this) + "/" + fileName + "." + fileExtension);
             FileOutputStream outputStream = new FileOutputStream(m_fileSound);
 
             byte[] buffer = new byte[1024];
@@ -249,9 +249,9 @@ public class OpenSharedSoundActivity extends AppCompatActivity {
         }
         // Create filename and add file extension
         String fileName = entryName + "." + FileHandler.getFileExtension(m_fileSound.getName());
-        fileName = FileHandler.createLegalFilename(fileName);
+        fileName = FileHandler.createLegalFilename(this, fileName);
 
-        File fileNew = FileHandler.moveFileTo(m_fileSound, FileHandler.getSoundPath() + "/" + fileName);
+        File fileNew = FileHandler.moveFileTo(m_fileSound, FileHandler.getInternalSoundPath(this) + "/" + fileName);
 
         // Create new Sound entry
         DataHandlerDB dataHandlerDB = new DataHandlerDB(this);
@@ -259,7 +259,7 @@ public class OpenSharedSoundActivity extends AppCompatActivity {
         dataHandlerDB.addSoundEntry(soundEntry);
 
         // delete tmp files
-        FileHandler.delete(FileHandler.getTmpSoundPath());
+        FileHandler.delete(FileHandler.getInternalTmpSoundPath(this));
 
         return true;
     }
