@@ -2,6 +2,7 @@ package timsterzel.de.soundpusher;
 
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -28,6 +29,9 @@ public class MainActivity extends AppCompatActivity implements
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
+    // Identifier to get the column count of the gridlayout from Shared preferences
+    private static final String PREF_COLUMN_COUNT = "pref_column_count";
+
     private ActionMode m_actionMode;
 
     private RecyclerView m_recyclerView;
@@ -42,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements
 
     private MediaHandler m_mediaHandler;
 
+    private SharedPreferences m_prefs;
+
     // The position of the item on which the user clicked long to get the context menu
     private int m_contextItemPosition;
 
@@ -54,11 +60,14 @@ public class MainActivity extends AppCompatActivity implements
 
         FileHandler.createSoundFilePathIfNotExists(this);
 
+        m_prefs = getPreferences(MODE_PRIVATE);
+        int columns = m_prefs.getInt(PREF_COLUMN_COUNT, 2);
+
         m_recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
         m_recyclerView.setHasFixedSize(true);
         //m_layoutManager = new LinearLayoutManager(this);
-        m_layoutManager = new GridLayoutManager(this, 2);
+        m_layoutManager = new GridLayoutManager(this, columns);
 
 
         m_recyclerView.setLayoutManager(m_layoutManager);
@@ -140,9 +149,6 @@ public class MainActivity extends AppCompatActivity implements
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            // Tmp
-            Intent intent = new Intent(MainActivity.this, OpenSharedSoundActivity.class);
-            startActivity(intent);
             return true;
         }
         /*
@@ -180,6 +186,11 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void changeLayoutColumns(int columns) {
+        // Save the new column count, so there are available after restart app
+        SharedPreferences.Editor editor = m_prefs.edit();
+        editor.putInt(PREF_COLUMN_COUNT, columns);
+        editor.commit();
+        // Apply the new column count
         m_layoutManager.setSpanCount(columns);
         m_recyclerView.setLayoutManager(m_layoutManager);
         m_adapterSounds.notifyDataSetChanged();
