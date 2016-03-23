@@ -24,14 +24,14 @@
     <item
         android:id="@+id/action_zoom_in_col"
         android:orderInCategory="97"
-        android:title="Add Column"
+        android:title="@string/action_zoom_in_col"
         android:icon="@drawable/ic_zoom_in_white_24dp"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_zoom_out_col"
         android:orderInCategory="96"
-        android:title="Remove Column"
+        android:title="@string/action_zoom_out_col"
         android:icon="@drawable/ic_zoom_out_white_24dp"
         app:showAsAction="ifRoom" />
 

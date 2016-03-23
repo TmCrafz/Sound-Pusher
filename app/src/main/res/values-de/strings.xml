@@ -4,12 +4,18 @@
     <string name="action_settings">Optionen</string>
     <string name="action_edit">Bearbeiten</string>
     <string name="action_share">Teilen</string>
+    <string name="action_zoom_in_col">Rein zoomen</string>
+    <string name="action_zoom_out_col">Raus zoomen</string>
 
     <string name="txt_SoundName">Sound Name</string>
     <string name="txt_actionModeMainTitle">Bearbeiten</string>
     <string name="txt_save">Speicher</string>
 
     <string name="txt_newSoundNameDummy">Neuer Sound</string>
+
+    <!-- Progressbar -->
+    <string name="pb_loading">Lade</string>
+    <string name="pb_saving">Speichere</string>
 
     <!-- Toasts and Snackbars -->
     <string name="txt_savedFile">Hinzugefügt</string>
