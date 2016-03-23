@@ -12,7 +12,6 @@ import android.support.v7.view.ActionMode;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.Menu;
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements
 
     private RecyclerView m_recyclerView;
 
-    private RecyclerView.LayoutManager m_layoutManager;
+    private /*RecyclerView.LayoutManager*/ GridLayoutManager m_layoutManager;
 
     private AdapterSounds m_adapterSounds;
 
@@ -60,6 +59,8 @@ public class MainActivity extends AppCompatActivity implements
         m_recyclerView.setHasFixedSize(true);
         //m_layoutManager = new LinearLayoutManager(this);
         m_layoutManager = new GridLayoutManager(this, 2);
+
+
         m_recyclerView.setLayoutManager(m_layoutManager);
 
         m_dataHandlerDB = new DataHandlerDB(this);
@@ -144,18 +145,44 @@ public class MainActivity extends AppCompatActivity implements
             startActivity(intent);
             return true;
         }
+        /*
         if (id == R.id.action_deleteAll) {
             m_dataHandlerDB.deleteTable(DataHandlerDB.SOUND_TABLE);
             loadSoundEntries();
             return true;
 
+        }*/
+        if (id == R.id.action_zoom_out_col) {
+            //m_layoutManager.add
+            int columns = m_layoutManager.getSpanCount();
+            if (columns < 8) {
+                columns++;
+                changeLayoutColumns(columns);
+            }
+            return true;
+        }
+        if (id == R.id.action_zoom_in_col) {
+            //m_layoutManager.add
+            int columns = m_layoutManager.getSpanCount();
+            if (columns > 1) {
+                columns--;
+                changeLayoutColumns(columns);
+            }
+            return true;
         }
         if (id == R.id.action_edit) {
             startSupportActionMode(this);
             m_adapterSounds.setIsInEditMode(true);
             m_adapterSounds.notifyDataSetChanged();
+            return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void changeLayoutColumns(int columns) {
+        m_layoutManager.setSpanCount(columns);
+        m_recyclerView.setLayoutManager(m_layoutManager);
+        m_adapterSounds.notifyDataSetChanged();
     }
 
     @Override

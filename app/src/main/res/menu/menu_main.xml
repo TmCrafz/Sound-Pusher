@@ -8,11 +8,11 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
 
-    <item
+    <!-- <item
         android:id="@+id/action_deleteAll"
         android:orderInCategory="99"
         android:title="Delete All"
-        app:showAsAction="never" />
+        app:showAsAction="never" /> -->
 
     <item
         android:id="@+id/action_edit"
@@ -20,4 +20,20 @@
         android:title="@string/action_edit"
         android:icon="@drawable/ic_mode_edit_white_24dp"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_zoom_in_col"
+        android:orderInCategory="97"
+        android:title="Add Column"
+        android:icon="@drawable/ic_zoom_in_white_24dp"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_zoom_out_col"
+        android:orderInCategory="96"
+        android:title="Remove Column"
+        android:icon="@drawable/ic_zoom_out_white_24dp"
+        app:showAsAction="ifRoom" />
+
+
 </menu>
