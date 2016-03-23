@@ -223,7 +223,6 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public void onDeleteSoundEntry(SoundEntry soundEntry) {
         int pos = m_soundEntries.indexOf(soundEntry);
-        Log.d(TAG, "TESTSOUND soundEntries size: " + m_soundEntries.size() + " index: " + pos);
         m_soundEntries.remove(pos);
         FileHandler.delete(soundEntry.getSoundPath());
         if (soundEntry.hasPicture()) {

@@ -37,8 +37,6 @@
                 <data
                     android:host="*"
                     android:mimeType="audio/gpp"
-
-
                      />
             </intent-filter>
             <intent-filter>
