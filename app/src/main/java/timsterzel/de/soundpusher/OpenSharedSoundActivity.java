@@ -184,6 +184,14 @@ public class OpenSharedSoundActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (m_mediaHandler.isPlaying()) {
+            m_mediaHandler.stopPlaying();
+        }
+    }
+
     private boolean loadSound() throws IOException {
         String name = m_edTxtRecordName.getText().toString();
         name = name.trim();

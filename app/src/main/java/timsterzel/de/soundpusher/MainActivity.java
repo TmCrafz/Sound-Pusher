@@ -241,6 +241,13 @@ public class MainActivity extends AppCompatActivity implements
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (m_mediaHandler.isPlaying()) {
+            m_mediaHandler.stopPlaying();
+        }
+    }
 
     @Override
     public void onNewRecordEntryCreated(SoundEntry soundEntry) {

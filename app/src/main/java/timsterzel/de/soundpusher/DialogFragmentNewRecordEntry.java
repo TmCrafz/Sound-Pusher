@@ -134,6 +134,11 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
                         m_btnRecord.setActive(false);
                     }
                 }
+                else {
+                    // IMPORTANT: ADD DIALOG WHICH INFORM USER
+                    Log.e(TAG, "No microphone detected");
+                }
+
             }
         });
 
@@ -218,6 +223,7 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
             m_btnSave.setEnabled(true);
             m_imageViewBackgroundImage.setVisibility(View.VISIBLE);
             m_imageViewBackgroundImage.setImageResource(R.drawable.ic_mic_dialog_bg);
+            m_btnRecord.setActive(false);
         }
     }
 
@@ -240,6 +246,18 @@ public class DialogFragmentNewRecordEntry extends DialogFragment {
             m_btnRecord.setEnabled(true);
             m_btnPlay.setActive(false);
         }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (m_mediaHandler.isPlaying()) {
+            onPlay(false);
+        }
+        else if (m_mediaHandler.isRecording()) {
+            onRecord(false);
+        }
+        Log.d(TAG, "TEST onPause");
     }
 
     void initCountThread() {
